@@ -10,8 +10,9 @@
 - Channel: #theaudiopheliac | ID: `C0AUH2RLZ41`
 - https://veterananalyticsllc.slack.com/archives/C0AUH2RLZ41
 
-**Task Observer:**
-At the start of any task-oriented session — any interaction where you will use tools and produce deliverables — invoke the task-observer skill before beginning work. This ensures skill improvement opportunities are captured throughout the session.
+**MANDATORY PRE-FLIGHT — Task Observer:** The first Skill call in any task-oriented session is `task-observer`. No tool use, no Slack reads, no file operations, no substantive response until task-observer has been invoked. This applies at session start AND after any context compaction — treat compaction resumption as a new session start. If you are about to make any tool call and task-observer has not been invoked this session, stop and invoke it now before proceeding. During task execution, the mandatory observation checkpoint fires after every 3rd tool completion — check for unlogged observations before proceeding past the 3rd completion.
+
+When loading any skill, check the observation log for OPEN observations tagged to that skill. Apply their insights to the current work, even if the skill file hasn't been updated yet.
 
 ---
 
@@ -41,7 +42,7 @@ This section is load-bearing. A session that hasn't loaded these docs is a sessi
 | **Brand voice guidelines v3** | `brand-voice-guidelines-v3.md` | Required before any user-facing UI copy, marketing copy, blog post, social content, or visual identity decision. Includes the dual-register voice modes (manifesto + direct), forbidden vocabulary list, and the Full Spectrum palette tie-in. |
 | **Listening Profile** | `docs/Audiopheliac_Listening_Profile_v2026_04.md` | Required before any playlist generation, recommendation, or music-curation task. Defines the genre spine (country/country-adjacent, classic rock, hard rock, blues-rock, selective hip-hop, selective pop), sonic priorities (bass-conscious, full low mids, clear lead vocals, muscular drums), and playlist design rules. |
 | **Site Architecture** | `docs/Audiopheliac_Site_Architecture.md` | Required before any work on the public-facing site at theaudiopheliac.com. The Cockpit lives at a private route on this site (per System Design §1) so site-level architecture decisions constrain Cockpit-level decisions too. |
-| **Audio System Playbook** | `media/audio_system_playbook.md` | Required before any signal-chain, gain-staging, or Office Studio routing decision. Documents the Office chain (GDMARCHE → AIR Hub → MX28 → HS7) which is independent of the Yamaha and easy to mistake for downstream-of-receiver. Some details are version-aged (mentions Scarlett Solo); cross-check against §SIGNAL CHAIN MAP below. |
+| **Audio System Playbook** | `media/audio_system_playbook.md` | Required before any signal-chain, gain-staging, or Office Studio routing decision. Documents the Office chain (GDMARCHE → AIR Hub → MX28 → HS7) which is independent of the Yamaha and easy to mistake for downstream-of-receiver. Version-aged (mentions Scarlett Solo; AIR Hub is now interim pending MOTU M4 arrival); cross-check against §SIGNAL CHAIN MAP and HARDWARE below. |
 
 **Pattern for using this section:** When asked to do feature, UX, or architecture work, first read the relevant doc(s) from the table above, then state back the product framing before proposing anything. Citing the canonical doc by section in proposals is the discipline that catches scope drift before it costs commits.
 
@@ -222,7 +223,8 @@ The D: drive is the second internal drive on GDMARCHE (original factory drive, s
 - DHCP reservation at 192.168.1.119 confirmed (toggle set in Spectrum router admin 2026-05-05)
 
 ### Audio Interface
-- **Primary (2026-05-11):** M-Audio AIR Hub (AIRXHUB) — USB-C device to USB-A on WD19DCS dock; 24-bit/96kHz DAC; 2× balanced 1/4" TRS monitor outs; 1× 1/4" headphone (independent level); 3× powered USB-A hub (LP120, Spark 40, Casio Privia); M-Audio AIR Hub ASIO driver. **Output only — no ADC.** Recording capability offline until input-capable replacement is sourced.
+- **Pending arrival (purchased 2026-05-21):** MOTU M4 — USB-C 4-channel interface; 2× combo XLR/TRS inputs (1-2, mic preamp); 2× dedicated TRS line inputs (3-4, no preamp — permanent Schiit Mani II wiring for stereo vinyl archiving); 2× balanced TRS monitor outs; 1× 1/4" headphone; 24-bit/192kHz; class-compliant + MOTU ASIO driver. Purchased at Guitar Center; receipt at `P:\Finances\Purchases_and_Receipts\Audio Equipment\MOTU_M4_GuitarCenter.pdf`. Replaces AIR Hub as primary. Setup pending arrival.
+- **Interim primary:** M-Audio AIR Hub (AIRXHUB) — USB-C device to USB-A on WD19DCS dock; 24-bit/96kHz DAC; 2× balanced 1/4" TRS monitor outs; 1× 1/4" headphone (independent level); 3× powered USB-A hub (LP120, Spark 40, Casio Privia); M-Audio AIR Hub ASIO driver. **Output only — no ADC.** Will be retired or kept as cold spare when MOTU M4 arrives.
 - **Failed:** Focusrite Scarlett Solo Gen 4 (S/N S1XJ7HX57AF107) — fried 2026-05-11, removed from chain. Warranty attempt pending without receipt; assume unrecoverable.
 
 ### Office Studio Monitors
@@ -681,7 +683,11 @@ Other surfaces likely to need a boundary line (capture here when they come up):
 | Delete stale vinyl PR branch (claude/stage-vinyl-rename-N4MQf) — content already in CLAUDE.md | Pending confirmation |
 | DHCP reservation for GDMARCHE at 192.168.1.119 | Complete |
 | Focusrite Scarlett Solo failed 2026-05-11 (fried, no signal); receipt missing — warranty likely unrecoverable | Open: attempt warranty claim, then dispose |
-| Source replacement audio interface with ADC (mic/instrument inputs) — recording offline | Open |
+| Source replacement audio interface with ADC (mic/instrument inputs) — recording offline | Complete — MOTU M4 purchased 2026-05-21, pending arrival |
+| MOTU M4 setup on arrival: install MOTU ASIO driver; reconfigure Ableton Audio prefs (MOTU ASIO driver, MOTU M4 device); wire balanced TRS outputs to Rolls MX28 Input A; wire Schiit Mani II L/R to M4 inputs 3-4 (RCA-M → TRS-M adapters needed); decide AIR Hub fate (cold spare or sell) | Pending arrival |
+| MOTU M4: purchase RCA-to-TRS adapter pair (Mani II → M4 inputs 3-4) | Pending — order on or before M4 arrival |
+| MOTU M4: create `docs/software/Motu-M4.md` profile from `docs/software/_TEMPLATE.md` | Pending arrival |
+| MOTU M4: update CLAUDE.md signal chain map and AIR Hub ASIO driver reference once M4 is installed | Pending arrival |
 | WireGuard/Tailscale necessity for VALOR remote NAS access | Unresolved |
 | Qfiling recipes for 217A working folder and VALOR repo | Deferred |
 | Amazon PA-API access (monitor Associates for qualifying sales) | Monitoring |
@@ -860,6 +866,7 @@ Cowork does the work. Rafa is invoked only when the task requires Windows-native
 **Trigger:** Gill types `audio:open` (or just `open`). See SESSION TRIGGER WORDS.
 **Required at start of every session. Execute before any other action.**
 
+0. **Invoke the task-observer skill (MANDATORY — fires before all other steps, including on compaction resumption).** Do not proceed to Step 1 until task-observer is active.
 1. Read this CLAUDE.md (sole persistent instruction source per COWORK OPERATING CONSTRAINTS)
 2. **Read the CANONICAL PRODUCT REFERENCES.** Specifically: `docs/Cockpit_System_Design_v2026_05.md` and `docs/Cockpit_Architecture_Decisions_v2026_05.md` are required reading on every session, not just when Cockpit work is on the table. They define what the product IS. The other entries in the §CANONICAL PRODUCT REFERENCES table are read as scoped to the task (brand voice for any UI/copy work, listening profile for any music-curation work, etc.). A session that skips this step will rebuild on guessed premises — see the 2026-05-18 HISTORY entry "session-level reorientation" for the forensic record of what that looks like.
 3. Read Slack channel #theaudiopheliac (channel ID `C0AUH2RLZ41`): most recent messages for last action, blockers, in-flight work. The Session Development Log canvas (F0AU7FEMA7M) may also be consulted as legacy reference; daily_log.md is primary for prior session detail.
