@@ -1,8 +1,10 @@
 # CLAUDE.md — The Audiopheliac | Cowork Project Instructions
 
-**Version:** 2026.05.2 | **Owner:** Gillon "Gill" Marchetti (MarcArmy2003)
+**Version:** 2026.05.3 | **Owner:** Gillon "Gill" Marchetti (MarcArmy2003)
 
-**Project Folder:** `C:\Users\gillo\The-Audiopheliac`
+> **2026-05-28 reorganization note:** Project folder renumbered from `The-Audiopheliac` to `6. The-Audiopheliac` per `C:\Users\gillo\MIGRATION_MASTER_2026-05-28.md`. All old un-numbered `C:\Users\gillo\The-Audiopheliac\...` paths below now resolve to `C:\Users\gillo\6. The-Audiopheliac\...`. VAL paths renumbered to `1. Veteran Analytics LLC` locally (NAS share rename pending Rafa Prompt 2). VeteranIntel promoted to peer at `C:\Users\gillo\2. VeteranIntel\` locally (NAS promotion pending Rafa Prompt 2). NAS share names otherwise unchanged. See `MIGRATION_2026-05-28.md` in this folder root.
+
+**Project Folder:** `C:\Users\gillo\6. The-Audiopheliac`
 **GitHub:** https://github.com/MarcArmy2003/The-Audiopheliac
 **Website:** theaudiopheliac.com (Cloudflare Pages, domain registered 2026-04-19, expiry 2028-04-19)
 
@@ -13,6 +15,8 @@
 **MANDATORY PRE-FLIGHT — Task Observer:** The first Skill call in any task-oriented session is `task-observer`. No tool use, no Slack reads, no file operations, no substantive response until task-observer has been invoked. This applies at session start AND after any context compaction — treat compaction resumption as a new session start. If you are about to make any tool call and task-observer has not been invoked this session, stop and invoke it now before proceeding. During task execution, the mandatory observation checkpoint fires after every 3rd tool completion — check for unlogged observations before proceeding past the 3rd completion.
 
 When loading any skill, check the observation log for OPEN observations tagged to that skill. Apply their insights to the current work, even if the skill file hasn't been updated yet.
+
+**`para-memory` skill status:** Uninstalled by Gill 2026-05-28. Do not invoke `para-memory` as a skill — it is no longer present. Patterns previously captured under para-memory (durable behavioral feedback, project facts, recall across sessions) survive via `task-observer` protocols: the skill-observation log at `skill-observations/log.md` and the cross-cutting principles file under task-observer's workspace. Existing `~AppData\Roaming\Claude\local-agent-mode-sessions\...\memory\` files (MEMORY.md + feedback-*.md + project-*.md) remain on disk as historical context but are no longer the active write target. New behavioral patterns get logged as task-observer observations and promoted to cross-cutting principles when warranted.
 
 ---
 
@@ -42,7 +46,7 @@ This section is load-bearing. A session that hasn't loaded these docs is a sessi
 | **Brand voice guidelines v3** | `brand-voice-guidelines-v3.md` | Required before any user-facing UI copy, marketing copy, blog post, social content, or visual identity decision. Includes the dual-register voice modes (manifesto + direct), forbidden vocabulary list, and the Full Spectrum palette tie-in. |
 | **Listening Profile** | `docs/Audiopheliac_Listening_Profile_v2026_04.md` | Required before any playlist generation, recommendation, or music-curation task. Defines the genre spine (country/country-adjacent, classic rock, hard rock, blues-rock, selective hip-hop, selective pop), sonic priorities (bass-conscious, full low mids, clear lead vocals, muscular drums), and playlist design rules. |
 | **Site Architecture** | `docs/Audiopheliac_Site_Architecture.md` | Required before any work on the public-facing site at theaudiopheliac.com. The Cockpit lives at a private route on this site (per System Design §1) so site-level architecture decisions constrain Cockpit-level decisions too. |
-| **Audio System Playbook** | `media/audio_system_playbook.md` | Required before any signal-chain, gain-staging, or Office Studio routing decision. Documents the Office chain (GDMARCHE → AIR Hub → MX28 → HS7) which is independent of the Yamaha and easy to mistake for downstream-of-receiver. Version-aged (mentions Scarlett Solo; AIR Hub is now interim pending MOTU M4 arrival); cross-check against §SIGNAL CHAIN MAP and HARDWARE below. |
+| **Audio System Playbook** | `media/audio_system_playbook.md` | Required before any signal-chain, gain-staging, or Office Studio routing decision. Documents the Office chain (GDMARCHE → audio interface → MX28 → HS7) which is independent of the Yamaha and easy to mistake for downstream-of-receiver. Version-aged (mentions Scarlett Solo and AIR Hub; MOTU M4 is now active primary as of 2026-05-28); cross-check against §SIGNAL CHAIN MAP and HARDWARE below. |
 
 **Pattern for using this section:** When asked to do feature, UX, or architecture work, first read the relevant doc(s) from the table above, then state back the product framing before proposing anything. Citing the canonical doc by section in proposals is the discipline that catches scope drift before it costs commits.
 
@@ -62,7 +66,7 @@ This section is load-bearing. A session that hasn't loaded these docs is a sessi
 
 ## RAFA (CLAUDE CODE CLI) — PRE-AUTHORIZATION
 
-**Settings file:** `C:\Users\gillo\The-Audiopheliac\.claude\settings.json`
+**Settings file:** `C:\Users\gillo\6. The-Audiopheliac\.claude\settings.json`
 
 All tools listed in `permissions.allow` run without prompting Gill for approval. This is intentional and permanent. Rafa is trusted to scope full tasks end-to-end including git operations and deployments.
 
@@ -78,7 +82,7 @@ All tools listed in `permissions.allow` run without prompting Gill for approval.
 
 **Behavioral rule for Rafa:** When a task has been scoped and Sully/Gill have provided context, execute the entire scope without interrupting for git checkpoints or deployment confirmations. Pre-auth means the task runs start to finish. If something goes wrong, report it in the closeout summary — do not pause mid-task to seek permission already granted.
 
-**Scope independence:** This repo is independent of VALOR scope. When Rafa is addressed directly for Audiopheliac tasks, that address is sufficient authorization — no VALOR scope-guard confirmation required. The canonical working tree is C:\Users\gillo\The-Audiopheliac. Do not apply VALOR identity, VALOR branch conventions, or VALOR pipeline rules here.
+**Scope independence:** This repo is independent of VALOR scope. When Rafa is addressed directly for Audiopheliac tasks, that address is sufficient authorization — no VALOR scope-guard confirmation required. The canonical working tree is C:\Users\gillo\6. The-Audiopheliac. Do not apply VALOR identity, VALOR branch conventions, or VALOR pipeline rules here.
 
 ### Operational routing — who runs what
 
@@ -103,14 +107,16 @@ Cowork drafts; Rafa executes anything that touches the running stack on GDMARCHE
 
 **Lane discipline note:** anything that requires the MusicCast iOS app stays with Gill — it is a walled-garden UI with no API surface. Cowork's job there is to draft the walkthrough; Gill's job is to click through it.
 
+**Hand-off prompt delivery convention (matches VAL workspace protocol):** All Rafa hand-off prompts are delivered in the chat window for Gill to copy and paste. Do NOT save them as standalone artifacts in the project folder (no `prompts/rafa-<task>-<date>.md` files, no `_dev/` files, no docs/ entries). Rationale: one-off hand-off prompts accumulate as project-folder clutter, get stale fast, and obscure the durable artifacts (canonical docs, code, configuration). The chat history is the durable record for hand-off prompts — Gill can scroll back if needed, and the daily_log session-close summary captures the substantive outcomes. The `prompts/` directory remains reserved for genuinely reusable AI workflows (productization layer per PROJECT FOLDER STRUCTURE), not for single-execution Rafa tasks. If a prompt iterates through multiple revisions in-session (v1 → v2 → v3 based on Rafa's discovery findings), each revision is delivered in chat; the final-executed version is what gets summarized in the session-close daily_log entry.
+
 **Default Rafa prompt shape** for Cockpit / Yamaha ops tasks:
 
-1. State the working directory: `C:\Users\gillo\The-Audiopheliac`.
+1. State the working directory: `C:\Users\gillo\6. The-Audiopheliac`.
 2. State the shell: PowerShell.
 3. State the scope in numbered steps with concrete file paths and exact expected JSON edits or commands.
 4. Provide an Acceptance block — observable state that proves the task ran.
 5. Provide an Out-of-Scope block — what NOT to touch.
-6. Close with: post a brief note to Slack channel `#theaudiopheliac` (ID `C0AUH2RLZ41`) and surface tag `Rafa`. Always include the channel ID explicitly — the VAL CLAUDE.md at `C:\Users\gillo\CLAUDE.md` loads in the same session and contains `C0AUU3PLJGP` (#val_dev); without an explicit ID, Rafa may post to the wrong channel.
+6. Close with: post a brief note to Slack channel `#theaudiopheliac` (ID `C0AUH2RLZ41`) and surface tag `Rafa`. Always include the channel ID explicitly — the VAL CLAUDE.md at `C:\Users\gillo\1. Veteran Analytics LLC\CLAUDE.md` loads in the same session and contains `C0AUU3PLJGP` (#val_dev); without an explicit ID, Rafa may post to the wrong channel.
 
 ---
 
@@ -118,7 +124,7 @@ Cowork drafts; Rafa executes anything that touches the running stack on GDMARCHE
 
 ### Project Folder (Canonical)
 ```
-C:\Users\gillo\The-Audiopheliac
+C:\Users\gillo\6. The-Audiopheliac
 ```
 This is the live git repo and working tree. All Cowork file operations target this path.
 
@@ -153,7 +159,7 @@ The D: drive is the second internal drive on GDMARCHE (original factory drive, s
 - **Vinyl files:** `Vinyl/` directory
 - **Signal map files:** `Signal_Map/` directory
 - **Pending PR:** Vinyl wishlist rename (`claude/stage-vinyl-rename-N4MQf`, commit `801ba0f`) — merge to `main` pending
-- **Worktree note:** `C:\Users\gillo\Veteran Analytics LLC\GitHub Clones\the-audiopheliac` is a git worktree linked to this repo, not an independent clone. It contains a stale CLAUDE.md (April 5, 2026) and should not be used as a working directory.
+- **Worktree note:** `C:\Users\gillo\1. Veteran Analytics LLC\GitHub Clones\the-audiopheliac` is a git worktree linked to this repo, not an independent clone. It contains a stale CLAUDE.md (April 5, 2026) and should not be used as a working directory.
 
 ### Slack (Veteran Analytics LLC Workspace)
 - **Workspace:** https://veterananalyticsllc.slack.com
@@ -196,7 +202,7 @@ The D: drive is the second internal drive on GDMARCHE (original factory drive, s
 - **Auth email:** gillon.marchetti@gmail.com
 - **Support:** billing@suno.com
 - **Knowledge base:** https://help.suno.com
-- **Local project folder:** `C:\Users\gillo\The-Audiopheliac\Suno\`
+- **Local project folder:** `C:\Users\gillo\6. The-Audiopheliac\Suno\`
 - **Status:** Account active. Profile bio, profile photo, and background image not yet set. My Taste profile empty (0/2000). My Styles toggle enabled.
 
 ### Cloudflare
@@ -223,9 +229,16 @@ The D: drive is the second internal drive on GDMARCHE (original factory drive, s
 - DHCP reservation at 192.168.1.119 confirmed (toggle set in Spectrum router admin 2026-05-05)
 
 ### Audio Interface
-- **Pending arrival (purchased 2026-05-21):** MOTU M4 — USB-C 4-channel interface; 2× combo XLR/TRS inputs (1-2, mic preamp); 2× dedicated TRS line inputs (3-4, no preamp — permanent Schiit Mani II wiring for stereo vinyl archiving); 2× balanced TRS monitor outs; 1× 1/4" headphone; 24-bit/192kHz; class-compliant + MOTU ASIO driver. Purchased at Guitar Center; receipt at `P:\Finances\Purchases_and_Receipts\Audio Equipment\MOTU_M4_GuitarCenter.pdf`. Replaces AIR Hub as primary. Setup pending arrival.
-- **Interim primary:** M-Audio AIR Hub (AIRXHUB) — USB-C device to USB-A on WD19DCS dock; 24-bit/96kHz DAC; 2× balanced 1/4" TRS monitor outs; 1× 1/4" headphone (independent level); 3× powered USB-A hub (LP120, Spark 40, Casio Privia); M-Audio AIR Hub ASIO driver. **Output only — no ADC.** Will be retired or kept as cold spare when MOTU M4 arrives.
-- **Failed:** Focusrite Scarlett Solo Gen 4 (S/N S1XJ7HX57AF107) — fried 2026-05-11, removed from chain. Warranty attempt pending without receipt; assume unrecoverable.
+- **Active primary (installed 2026-05-28):** MOTU M4 — USB-C 4-channel interface, bus-powered, 24-bit/192kHz.
+  - Inputs 1-2: combo XLR/TRS with mic preamp + 48V phantom (per-channel switches).
+  - Inputs 3-4: dedicated 1/4" TRS line inputs (no preamp; reserved for Schiit Mani II vinyl rip path once RCA-M → TRS-M adapters arrive).
+  - Outputs 1-2 (MONITOR): 1/4" TRS balanced (active feed to Rolls MX28 LEVEL 3 BAL) + RCA parallel (unused).
+  - Outputs 3-4 (LINE OUT): 1/4" TRS balanced + RCA parallel (unused; available for future tracking-cue or dual-zone monitoring).
+  - 2× front-panel 1/4" headphone outputs (wired to Out 3-4 by default; M Series Console can route Out 1-2 mix to headphones for monitoring the main mix).
+  - Driver: MOTU M Series ASIO 4.5.0.551 + Windows class-compliant. Firmware: 2.07. Device serial: m4ma0243as.
+  - M Series Console settings at install: Sample Rate 48 kHz, Buffer Size 256, Sync Windows sample rate to device ON, Use lowest latency safety offsets ON (Xeon E-2286M + 112 GB ECC has the headroom; revert if Ableton sessions produce audio artifacts under heavy plugin load).
+  - Receipt at `P:\Finances\Purchases_and_Receipts\Audio Equipment\MOTU_M4_GuitarCenter.pdf`.
+- **Cold spare (30-day evaluation through 2026-06-27):** M-Audio AIR Hub (AIRXHUB) — output-only 24-bit/96kHz interface. Replaced as primary on 2026-05-28. Kept as known-good fallback while M4 is verified rock-solid. After 2026-06-27, decision: retire entirely, OR keep as a USB-A passthrough hub (LP120, Spark 40, Casio Privia powered USB ports — its non-audio utility).
 
 ### Office Studio Monitors
 - Yamaha HS7 (pair) + JBL LSR310S subwoofer
@@ -294,27 +307,32 @@ Yamaha PRE OUT
 
 ### Office Studio
 ```
-AT-LP120XUSB (phono out)
+AT-LP120XUSB (phono out RCA)
   > Schiit Mani II (phono preamp)
-  > Rolls MX28 Mini-Mix VI (Input B)
+  > Rolls MX28 Mini-Mix VI (LEVEL 2 BAL)
+  [Future: with RCA-M → TRS-M adapters, route directly to MOTU M4 LINE IN 3-4
+   for in-the-box vinyl archiving — bypasses MX28 for the rip path]
 
 1Mii RX #1 (Family Room wireless)
-  > Rolls MX28 Mini-Mix VI (Input C)
+  > Rolls MX28 Mini-Mix VI (LEVEL 1 BAL)
 
-GDMARCHE (Spotify / streaming / DAW)
-  > M-Audio AIR Hub (USB-C to USB-A on WD19DCS; 24-bit/96kHz, output only)
-  > balanced 1/4" TRS L/R
-  > Rolls MX28 Mini-Mix VI (Input A)
+GDMARCHE (Spotify / Plexamp / streaming / DAW)
+  > MOTU M4 (USB-C bus-powered; 24-bit/192kHz; MOTU M Series ASIO)
+  > MONITOR Outs 1-2 (1/4" TRS balanced)
+  > Rolls MX28 Mini-Mix VI (LEVEL 3 BAL)
 
 Rolls MX28 Mini-Mix VI (Master Out, TRS balanced)
   > JBL LSR310S (TRS in)
   > Yamaha HS7 monitors (TRS out)
 
-Headphone monitoring: M-Audio AIR Hub 1/4" headphone output (independent
-level control) preferred for all streaming and DAW listening. MX28 headphone
-output reserved for multi-source blended monitoring only. Note: AIR Hub has
-no Direct Monitor switch and no inputs; live zero-latency recording is
-unavailable until a replacement interface with ADC is sourced.
+Headphone monitoring: MOTU M4 front-panel headphone outputs (1/4" jacks;
+wired to Out 3-4 by default). For monitoring the main mix, M Series Console
+can route Out 1-2 to headphones. MX28 headphone output still available as a
+multi-source blend monitor (useful when tracking multiple inputs).
+
+Live zero-latency recording: enabled via M4 front-panel INPUT MONITOR MIX
+knob. For PLAYBACK-only daily listening, set the mix toward PLAYBACK. For
+tracking, blend or full INPUT depending on cue needs.
 ```
 
 ### Lanai
@@ -350,17 +368,17 @@ Amazon Echo (parallel, independent BT/Wi-Fi)
 
 ### NAS Shares
 - `\\NAS87828E\The Audiopheliac` (mapped as `A:\`) — canonical data/media source
-- `\\NAS87828E\Veteran Analytics LLC` — separate business domain (do not cross-contaminate)
+- `\\NAS87828E\1. Veteran Analytics LLC` — separate business domain (do not cross-contaminate)
 
 ### Sync Architecture
 - **HBS 3:** One-way NAS > Google Drive (non-native files; indexing delay 5-30 min is normal; full-text search does not index markdown or PDF via HBS 3 — use name-based queries)
-- **Robocopy (VALOR):** `D:\VeteransAnalytics_NVMe` > `\\NAS87828E\Veteran Analytics LLC` (Task Scheduler, `/MIR /XO`, log at `C:\Scripts\Logs\VA_NVMe_sync.log`)
-- **Robocopy (Audiopheliac — PENDING):** `C:\Users\gillo\The-Audiopheliac` > `D:\The Audiopheliac\The-Audiopheliac\` — scheduled nightly sync not yet configured. Currently manual. See Open Action Items.
+- **Robocopy (VALOR):** `D:\VeteransAnalytics_NVMe` > `\\NAS87828E\1. Veteran Analytics LLC` (Task Scheduler, `/MIR /XO`, log at `C:\Scripts\Logs\VA_NVMe_sync.log`)
+- **Robocopy (Audiopheliac — PENDING):** `C:\Users\gillo\6. The-Audiopheliac` > `D:\The Audiopheliac\The-Audiopheliac\` — scheduled nightly sync not yet configured. Currently manual. See Open Action Items.
 - **Qsync:** `D:\The Audiopheliac` paired to `\\NAS87828E\The Audiopheliac` — syncs D: drive contents (Ableton Cache, Ableton User Library, and the nested The-Audiopheliac\ project backup) to NAS.
 
 ### Sync Chain (Audiopheliac project files)
 ```
-C:\Users\gillo\The-Audiopheliac   (live repo — edit here)
+C:\Users\gillo\6. The-Audiopheliac   (live repo — edit here)
   > Robocopy (pending schedule)
   > D:\The Audiopheliac\The-Audiopheliac\   (daily D: backup)
   > Qsync (automatic)
@@ -377,7 +395,7 @@ C:\Users\gillo\The-Audiopheliac   (live repo — edit here)
 - **DAWs:** Ableton Live 12 Suite (default), Audacity (editing)
 - **AI Music:** Suno (Premier Annual) — see Platform Credentials and Suno Production Environment
 - **Default session:** 48 kHz / 24-bit unless specified otherwise
-- **Driver:** M-Audio AIR Hub ASIO (current as of 2026-05-11). Focusrite ASIO retained on system but no longer in active use (Solo hardware failed).
+- **Driver:** MOTU M Series ASIO 4.5.0.551 (active as of 2026-05-28; replaces M-Audio AIR Hub ASIO). Simultaneous WDM + ASIO supported. Default sample rate 48 kHz / 24-bit per project standard; M Series Console "Sync Windows sample rate to device" ON so Plexamp (WASAPI Exclusive) and Ableton (ASIO) can drive source-native rates without Windows fighting them. AIR Hub ASIO retained on system as cold-spare driver through 2026-06-27 evaluation window.
 - **Ableton paths:**
   - Cache: `D:\Ableton Cache`
   - User Library: `D:\Ableton User Library`
@@ -394,7 +412,7 @@ C:\Users\gillo\The-Audiopheliac   (live repo — edit here)
 
 ## PROJECT FOLDER STRUCTURE (AUTHORITATIVE)
 
-**Local root:** `C:\Users\gillo\The-Audiopheliac`
+**Local root:** `C:\Users\gillo\6. The-Audiopheliac`
 
 ```
 automation/         All executable scripts. No outputs, no configs.
@@ -504,7 +522,7 @@ Local FLAC Files (NAS)
   > spotify_missing_tracks.txt
 ```
 
-**Daily refresh (run from GDMARCHE at `C:\Users\gillo\The-Audiopheliac\`):**
+**Daily refresh (run from GDMARCHE at `C:\Users\gillo\6. The-Audiopheliac\`):**
 ```powershell
 python automation\music_indexer.py
 python automation\spotify_pull.py
@@ -589,7 +607,7 @@ python automation\spotify_gap_report.py
 
 ### Local Reference Files
 ```
-C:\Users\gillo\The-Audiopheliac\Suno\
+C:\Users\gillo\6. The-Audiopheliac\Suno\
   Suno_Account_Info.pdf
   Suno_Account_Info.txt
 ```
@@ -605,7 +623,7 @@ C:\Users\gillo\The-Audiopheliac\Suno\
 ### Song Archive Protocol
 Once Gill confirms a song is finalized (lyrics, style, exclusions, and a generated result he's happy with), save the following to disk before closing the session:
 
-**Lyrics file:** `C:\Users\gillo\The-Audiopheliac\Suno\lyrics\[Song-Title].md`
+**Lyrics file:** `C:\Users\gillo\6. The-Audiopheliac\Suno\lyrics\[Song-Title].md`
 Contents: full lyrics with section tags as used in Suno.
 
 **Prompt file:** `D:\The Audiopheliac\Creative Studio\09_Integrations\Suno\style_prompts\[Song-Title].md`
@@ -683,11 +701,14 @@ Other surfaces likely to need a boundary line (capture here when they come up):
 | Delete stale vinyl PR branch (claude/stage-vinyl-rename-N4MQf) — content already in CLAUDE.md | Pending confirmation |
 | DHCP reservation for GDMARCHE at 192.168.1.119 | Complete |
 | Focusrite Scarlett Solo failed 2026-05-11 (fried, no signal); receipt missing — warranty likely unrecoverable | Open: attempt warranty claim, then dispose |
-| Source replacement audio interface with ADC (mic/instrument inputs) — recording offline | Complete — MOTU M4 purchased 2026-05-21, pending arrival |
-| MOTU M4 setup on arrival: install MOTU ASIO driver; reconfigure Ableton Audio prefs (MOTU ASIO driver, MOTU M4 device); wire balanced TRS outputs to Rolls MX28 Input A; wire Schiit Mani II L/R to M4 inputs 3-4 (RCA-M → TRS-M adapters needed); decide AIR Hub fate (cold spare or sell) | Pending arrival |
-| MOTU M4: purchase RCA-to-TRS adapter pair (Mani II → M4 inputs 3-4) | Pending — order on or before M4 arrival |
-| MOTU M4: create `docs/software/Motu-M4.md` profile from `docs/software/_TEMPLATE.md` | Pending arrival |
-| MOTU M4: update CLAUDE.md signal chain map and AIR Hub ASIO driver reference once M4 is installed | Pending arrival |
+| Source replacement audio interface with ADC (mic/instrument inputs) | Complete — MOTU M4 installed and verified 2026-05-28 |
+| MOTU M4 setup on arrival: install MOTU ASIO driver, wire balanced TRS outputs to MX28 LEVEL 3 BAL, verify audio reaches HS7 + LSR310S | Complete 2026-05-28 |
+| MOTU M4: reconfigure Ableton Audio prefs (MOTU ASIO driver, MOTU M4 device) | Open — pending Gill, this session |
+| MOTU M4: reconfigure Plexamp Audio settings (M4 device, WASAPI Exclusive) | Open — pending Gill, this session |
+| MOTU M4: purchase RCA-to-TRS adapter pair (Mani II → M4 inputs 3-4) | Open — order at convenience; unblocks in-the-box vinyl rip path |
+| MOTU M4: update CLAUDE.md signal chain map and driver references | Complete 2026-05-28 |
+| MOTU M4: create `docs/software/Motu-M4.md` profile from `docs/software/_TEMPLATE.md` | Complete 2026-05-28 |
+| AIR Hub fate: 30-day cold-spare evaluation through 2026-06-27, then retire or keep as USB-A passthrough hub | Open — evaluation window in progress |
 | WireGuard/Tailscale necessity for VALOR remote NAS access | Unresolved |
 | Qfiling recipes for 217A working folder and VALOR repo | Deferred |
 | Amazon PA-API access (monitor Associates for qualifying sales) | Monitoring |
@@ -695,7 +716,7 @@ Other surfaces likely to need a boundary line (capture here when they come up):
 | Suno profile: bio, profile photo, background image | Complete |
 | Suno My Taste profile: draft and save taste descriptor (2,000 char max) | Complete |
 | Ackypaleto (Suno): collaborative project with Kevin | Backlog (not tracked here) |
-| Set up Robocopy job: C:\Users\gillo\The-Audiopheliac > D:\The Audiopheliac\The-Audiopheliac\ (nightly /MIR /XO) | Complete |
+| Set up Robocopy job: C:\Users\gillo\6. The-Audiopheliac > D:\The Audiopheliac\The-Audiopheliac\ (nightly /MIR /XO) | Complete |
 | Clean up D:\The Audiopheliac\The-Audiopheliac\ stale files after Robocopy is running | Monitor — extras retained (QSync layer); review after several nightly runs |
 | Remove remaining VALOR worktree: GitHub Clones\The-Audiopheliac\tender-wright-900476 | Complete |
 | Canva brand kit kAHGkHrcJYU: paste Full Spectrum palette + fonts into Canva UI (asset uploads complete, see `_dev/01_brand/canva_brand_kit_paste_sheet.md`) | Open — manual UI work |
@@ -775,7 +796,7 @@ Apply in order for every technical question:
 ## GAIN STAGING PRINCIPLES
 
 - Digital domain controls (Spotify, Windows volume) stay at maximum to preserve resolution through the DAC.
-- Analog controls (AIR Hub TRS output, MX28 Line levels, HS7 gain) set once for healthy levels.
+- Analog controls (MOTU M4 MONITOR knob, MX28 Line levels, HS7 gain) set once for healthy levels.
 - MX28 Master is the sole daily volume control.
 - Boost-then-distribute: amplify once (Rolls MB15b), then split. Splitting before boosting causes weak signal across all zones.
 - Each gear addition must solve the root problem, not patch a symptom created by a prior purchase.
@@ -833,12 +854,13 @@ Exit with /produce or /studio. See Suno Production Environment > Integration Not
 - **Scope contract — required on every Rafa prompt and every non-trivial Cowork task brief.** The first line of any prompt or brief that touches product scope must cite the canonical doc and section the work is scoped against. Example: "Scope: docs/Cockpit_System_Design_v2026_05.md §4a (zone routing). This work fits inside that section's data flow." If no canonical-doc citation is possible because the work doesn't fit any documented section, that itself is the signal to stop and ask whether the work is in scope at all. PROJECT FOLDER STRUCTURE descriptions are NOT specs; do not cite them as scope authority.
 - **Ambient assumption check before architectural or UX decisions.** Before drafting a design change, state the premises back explicitly. "I'm assuming X about the product, Y about the user, Z about the implementation." If those premises haven't been verified against the canonical references, do that first. The failure mode this catches: building successively correct fixes against a wrong mental model. See the 2026-05-18 HISTORY entry "session-level reorientation" for what skipping this looks like.
 - **`console/` is a prototype, not the product.** Never treat its current shape as the specification for further work. When asked to add scope to `console/`, ask first whether the scope belongs in the canonical Cloudflare Worker + Astro architecture instead. Patching the prototype while the canonical implementation is unbuilt is debt against the eventual real thing; do it only when the prototype-patching is consciously chosen and named as such.
+- **Backend rewiring proceeds immediately.** When changes to The Audiopheliac (brand, voice, architecture, identity decisions) or the Cockpit (UI structure, source list, routing, destination model) cause downstream rewiring of attached apps' backend configs — Plex library paths, Spotify Connect device hints, Yamaha YXC enabled inputs and presets, DLNA/UPnP server target names, MinimServer/QDMS/Kazoo selection, AIR Hub or MOTU audio device routing, Cockpit `config.json` source list, Ableton control-surface mappings, Suno output destination paths, vinyl pipeline targets, Hue Entertainment integration, Net Radio preset list, MusicCast grouping configuration, or any per-package profile under `docs/software/` — fix the wiring in the SAME session that introduces the upstream change. Do not defer to "later when we get to integration." Dev and design must operate within each integrated app's limitations and capabilities so the Cockpit's centralized control surface works seamlessly across them. Discovering broken wiring during expected-to-work moments is a known failure mode that erodes trust in the entire system; the fix is to make wiring updates inline with the upstream change, not after. If a wiring fix is genuinely impossible in the same session (requires hardware that hasn't arrived, requires Gill's manual action in a third-party UI, requires Rafa-lane work that needs scheduling), log it as a blocking action item in the session-close `docs/daily_log.md` entry with the specific wiring target named, and treat the upstream change as "shipped against incomplete integration" until the wiring fix lands.
 
 ---
 
 ## DATA SOURCE PRIORITY
 
-1. This CLAUDE.md and project files on disk at `C:\Users\gillo\The-Audiopheliac\`
+1. This CLAUDE.md and project files on disk at `C:\Users\gillo\6. The-Audiopheliac\`
 2. GitHub raw content (`https://raw.githubusercontent.com/MarcArmy2003/The-Audiopheliac/main/...`)
 3. Slack canvas (Session Development Log: https://veterananalyticsllc.slack.com/docs/T0AS3KMJ82X/F0AU7FEMA7M)
 4. Web search for firmware notes, changelogs, driver downloads (prefer manufacturer sources: focusrite.com, ableton.com, yamaha.com, qnap.com, help.suno.com)
@@ -907,6 +929,19 @@ Run at any context compaction, natural pause point, or when Gill requests a sync
 **Trigger:** Gill types `audio:close` (or just `close`). See SESSION TRIGGER WORDS.
 **Required at end of every session. Execute before reporting complete.**
 
+**Step 0, No-Man-Left-Behind Sweep (MANDATORY — fires before all other steps):**
+
+Invoke the `/no-man-left-behind` skill before any documentation update, commit, or close-record write. The skill catches deferred-language ("out of scope," "deferred for next session," "TODO," "carry-forward," "won't fix this session," "next iteration," "left for cleanup," "surface only," "do not fix," or any equivalent phrase that punts cleanup) in the session's working state, and folds non-complex cleanup into the current close instead of punting it forward. The governing rule from the skill: scope-lock protects against architectural rework, NOT janitorial finish work. If Gill would notice and call it out at the next review, fix it now.
+
+Apply the skill's discipline to:
+
+- The working tree: every modified or untracked file Cowork is about to commit or leave on disk. If a file is one trivial edit away from done, finish it now rather than logging it as a carry-forward.
+- The draft `docs/daily_log.md` entry and Slack close summary: scan both for deferral language before writing. Anything routed to "next session" gets a second look — is it truly architectural, or is it a janitorial item dressed up as scope?
+- The task list status: any task that should be closed-out (not deferred) gets closed-out, including small follow-ups discovered mid-session that didn't warrant their own task at the time.
+- The HISTORY append: a session that lands a forensic correction should not also leave behind the small cleanup that triggered the correction.
+
+If the skill flags items, fold the simple ones in before proceeding to Step 1. Carry-forwards retained in the close summary should be ones that legitimately cannot be done now (require Rafa lane, require Gill's manual action, require a hardware/firmware step, gated on an open question), not ones that are inconvenient.
+
 **Step 1, Documentation Updates:**
 - Update any docs in `docs/` modified this session
 - If a new correction pattern was identified, evaluate whether CLAUDE.md needs an update. This file is the sole persistent instruction source; updates are deliberate, not casual
@@ -923,7 +958,7 @@ Run at any context compaction, natural pause point, or when Gill requests a sync
 Per the #theaudiopheliac channel charter (hybrid logging architecture, Option C), every session-close writes BOTH a Slack close summary AND a durable archive entry. Neither alone is sufficient.
 
 - *3a, Slack channel post (live signal):* Post a session close summary to channel #theaudiopheliac (channel ID `C0AUH2RLZ41`) as a channel message. Include: session date, work done, commits, decisions, corrections, next actions. Always include the channel ID explicitly when delegating to Rafa; the VAL CLAUDE.md loads in the same session and contains `C0AUU3PLJGP` (#val_dev). Without an explicit ID, the wrong channel gets the post.
-- *3b, daily_log.md append (durable archive of record):* Append a timestamped entry to the Audiopheliac-only daily log at `C:\Users\gillo\The-Audiopheliac\docs\daily_log.md` (repo-relative: `docs/daily_log.md`). This file is dedicated to The Audiopheliac. It is NOT shared with `valor-core/docs/daily_log.md` (VAL), nor with any VeteranIntel.org daily log. Each product maintains its own log; do not write Audiopheliac entries into a VAL or VI log under any circumstance, and do not pull VAL or VI entries into this one. **Append-only. Never overwrite. Never merge with prior entries.** Format mirrors valor-core: a section header (`## Session [N] — [YYYY-MM-DD]`) followed by bullets covering work done, commits (with short SHAs), decisions, corrections, next actions. This file is grep-able, git-versioned, and audit-ready. It is the archive of record, not the Slack channel.
+- *3b, daily_log.md append (durable archive of record):* Append a timestamped entry to the Audiopheliac-only daily log at `C:\Users\gillo\6. The-Audiopheliac\docs\daily_log.md` (repo-relative: `docs/daily_log.md`). This file is dedicated to The Audiopheliac. It is NOT shared with `valor-core/docs/daily_log.md` (VAL), nor with any VeteranIntel.org daily log. Each product maintains its own log; do not write Audiopheliac entries into a VAL or VI log under any circumstance, and do not pull VAL or VI entries into this one. **Append-only. Never overwrite. Never merge with prior entries.** Format mirrors valor-core: a section header (`## Session [N] — [YYYY-MM-DD]`) followed by bullets covering work done, commits (with short SHAs), decisions, corrections, next actions. This file is grep-able, git-versioned, and audit-ready. It is the archive of record, not the Slack channel.
 - *3c, Pre-close verification (dual-write contract enforcement):* Before reporting session complete, verify both writes landed. For daily_log.md: line-count diff before/after the append (`wc -l docs/daily_log.md` or equivalent) — confirm the line count grew by the expected amount. Slack alone has historically silently absorbed the close signal while the GitHub append dropped out; the verification step exists specifically to catch that failure mode.
 - *3d, Session Development Log canvas (legacy):* The canvas at `F0AU7FEMA7M` ("The Audiopheliac - Session Development Log") is the legacy session log under the pre-charter architecture. Under the new contract, daily_log.md is primary. The canvas may continue to receive entries for continuity if Gill chooses, but it is no longer load-bearing. Flag for explicit retirement decision once the daily_log pattern is established.
 - *3e, Scope lock:* Do not cross-write Audiopheliac session content into `#val_dev`, `#veteranintel-handoffs`, or any other VeteranAnalytics / VeteranIntel channel. Do not cross-write into valor-core's `daily_log.md` or any other product's daily_log. Per the channel charter, products stay separate. If a session legitimately touched multiple products, split the close summary by product and write each to its own surface.
@@ -940,7 +975,7 @@ Universal trigger words to standardize SESSION-INIT, MID-SESSION SYNC, and SESSI
 |---|---|---|---|
 | `audio:open` (or `open`) | Cowork, Rafa | SESSION-INIT PROTOCOL | Read CLAUDE.md + Slack #theaudiopheliac + `docs/daily_log.md` + on-disk state; output status block; ready to work |
 | `audio:sync` (or `sync`) | Cowork, Rafa | MID-SESSION SYNC PROTOCOL | Post mid-session status to `#theaudiopheliac`; refresh any in-flight on-disk state |
-| `audio:close` (or `close`) | Cowork + Rafa (Cowork orchestrates) | SESSION-CLOSE PROTOCOL | Update docs; commit; dual-write close record (Slack #theaudiopheliac + `docs/daily_log.md` append, line-count verified); report |
+| `audio:close` (or `close`) | Cowork + Rafa (Cowork orchestrates) | SESSION-CLOSE PROTOCOL | Run `/no-man-left-behind` sweep; update docs; commit; dual-write close record (Slack #theaudiopheliac + `docs/daily_log.md` append, line-count verified); report |
 
 **Recognition rules:**
 
@@ -1011,7 +1046,7 @@ See HISTORY entry dated 2026-05-18 for the full deprecation rationale.
 
 **2026-05-11 (per-package software profile pattern, later):** Added the per-package software configuration profile pattern under `docs/software/`. Seeded with `docs/software/README.md` (convention + active-profiles index), `docs/software/_TEMPLATE.md` (reusable skeleton), and `docs/software/Spotify.md` (first profile, covering Premier / Lossless setup, bit-perfect chain through M-Audio AIR Hub, Local Files config against `M:\The Audiopheliac\`, Developer App registration, `Set-AIRHub-And-Launch-Spotify.ps1` wrapper, and full troubleshooting runbook). Added BEHAVIORAL RULE requiring Cowork to proactively flag profile updates whenever working in or changing the configuration of any in-scope software application. Folder tree and structure rules in PROJECT FOLDER STRUCTURE updated to reference `docs/software/` and its conventions.
 
-**2026-05-11 (Audiopheliac paperclip reference, later):** Copied the cross-project Paperclip reference from `C:\Users\gillo\Veteran Analytics LLC\Paperclip_Reference.md` into the Audiopheliac repo at `docs/Audiopheliac_Paperclip_Reference.md` and revised it to be Audiopheliac-applicable: rewrote header to scope-down to The Audiopheliac alone with explicit disambiguation from the VAL parent file; added Section 0 with current state of the paperclip company (id `821ef660-0041-4ef6-a911-adb1ba038e15`, prefix `THE`, brand color `#7a1f2b`, Operator not yet hired, baseline issue THE-1 closed 2026-05-08), use-case ranking, prefix-change decision (recommend `THE` → `AUD` migration playbook), and a reading-map index. Bulk of the document retained verbatim (5,666 lines) as platform-mechanics reference. Flagged gaps: solo-Operator hire flow, concrete data-pipeline routine specs, Audiopheliac issue templates, plugin recommendations, backup/restore cadence, prefix-migration verification recipe — to be pulled from https://docs.paperclip.ing/ in follow-up sessions.
+**2026-05-11 (Audiopheliac paperclip reference, later):** Copied the cross-project Paperclip reference from `C:\Users\gillo\1. Veteran Analytics LLC\Paperclip_Reference.md` into the Audiopheliac repo at `docs/Audiopheliac_Paperclip_Reference.md` and revised it to be Audiopheliac-applicable: rewrote header to scope-down to The Audiopheliac alone with explicit disambiguation from the VAL parent file; added Section 0 with current state of the paperclip company (id `821ef660-0041-4ef6-a911-adb1ba038e15`, prefix `THE`, brand color `#7a1f2b`, Operator not yet hired, baseline issue THE-1 closed 2026-05-08), use-case ranking, prefix-change decision (recommend `THE` → `AUD` migration playbook), and a reading-map index. Bulk of the document retained verbatim (5,666 lines) as platform-mechanics reference. Flagged gaps: solo-Operator hire flow, concrete data-pipeline routine specs, Audiopheliac issue templates, plugin recommendations, backup/restore cadence, prefix-migration verification recipe — to be pulled from https://docs.paperclip.ing/ in follow-up sessions.
 
 **2026-05-11:** Focusrite Scarlett Solo 4th Gen failed (fried; no signal). M-Audio AIR Hub (AIRXHUB) promoted from spare to primary monitoring/playback interface. AIR Hub is output only (24-bit/96kHz DAC, 2× balanced TRS, 1× independent-level headphone, 3× powered USB-A hub for LP120, Spark 40, Privia). Recording capability offline pending input-capable replacement. Solo receipt missing, warranty attempt planned but assumed lost. Inventory bumped to v2026.05; signal map header bumped to v2026.05. Updated: Audio Interface section, Office Studio headphone monitoring, Software/DAW driver, Open Action Items, Gain Staging Principles. **Not updated (flagged for verification):** Office Studio signal chain still shows MX28 as central hub; SVS SoundPath kit still flagged disconnected/stored while inventory has TX/RX active in Family Room → Lanai.
 

@@ -6,19 +6,58 @@
 
   "enabled_sources": [
     "spotify",
+    "amazon_music",
     "airplay",
     "server",
-    "net_radio",
     "bluetooth",
+    "tuner",
     "optical1",
-    "phono",
-    "usb_dac"
+    "optical2",
+    "line1",
+    "line2",
+    "audio1",
+    "audio2",
+    "usb_dac",
+    "phono"
   ],
 
   "spotify": {
     "client_id": "7b8b0cd38be7496b864a0380b8c2a16c",
     "redirect_uri": "http://127.0.0.1:5000/spotify/callback",
-    "yamaha_device_name_hint": "Yamaha R-N800A"
+    "yamaha_device_name_hint": "Yamaha R-N800A",
+    "studio_device_name_hints": ["GDMARCHE", "Audiopheliac", "Computer"]
+  },
+
+  "destinations": {
+    "default": "studio",
+    "options": [
+      {
+        "id": "studio",
+        "label": "Studio",
+        "sub": "GDMARCHE → MOTU M4 → HS7",
+        "kind": "local"
+      },
+      {
+        "id": "yamaha",
+        "label": "Family Room",
+        "sub": "Yamaha R-N800A",
+        "kind": "yamaha"
+      }
+    ]
+  },
+
+  "local_player": {
+    "music_roots": [
+      {"label": "M: Music Library",        "path": "M:\\"},
+      {"label": "The Audiopheliac (NAS)",   "path": "M:\\The Audiopheliac"},
+      {"label": "Creative Studio",          "path": "D:\\The Audiopheliac\\Creative Studio"},
+      {"label": "Published Masters",        "path": "D:\\The Audiopheliac\\Creative Studio\\01_Songs\\Published Masters"}
+    ],
+    "spotify_desktop_paths": [
+      "%APPDATA%\\Spotify\\Spotify.exe",
+      "%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Spotify.exe",
+      "C:\\Users\\gillo\\AppData\\Local\\Packages\\SpotifyAB.SpotifyMusic_zpdnekdrzrea0\\LocalState\\Spotify\\Spotify.exe"
+    ]
   },
 
   "net_radio_suggestions": [
