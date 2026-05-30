@@ -98,7 +98,7 @@ Yamaha R-N800A (Line Out / PRE OUT)
 
 | Device               | Make / Model                                                                                                                | Serial Number          | Purchase Date | Est. Resale (USD) | Notes                                                        |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------- | ----------------- | ------------------------------------------------------------ |
-| Turntable            | Audio-Technica AT-LP120XUSB                                                                                                 | 243402497              | Jan 2025      | $200              | Direct drive; stock AT95E cartridge (green); AT-VM95SH Shibata on backorder |
+| Turntable            | Audio-Technica AT-LP120XUSB                                                                                                 | 243402497              | Jan 2025      | $200              | Direct drive; Audio-Technica AT-VM95SH Shibata cartridge (installed Feb 9, 2026; replaced stock AT95E) |
 | Audio Interface      | [Focusrite Scarlett Solo 4th Gen](https://github.com/MarcArmy2003/The-Audiopheliac/blob/main/docs/Processing_Hardware.md)   | S1XJ7HX57AF107         | Feb 2025      | $0                | **FAILED (2026-05-11)** — Unit fried; no signal. Warranty likely unrecoverable (receipt missing). Replacement TBD. |
 | Wireless RX          | 1Mii RT5066R2 Wireless Audio Receiver #1                                                                                    | TBD                    | Jan 16, 2026  | $23               | **ACTIVE** — Receives Family Room wireless feed; routed to Rolls MX28 Mini-Mix VI as a line input. |
 | Audio Hub / Monitor I/F | M-Audio AIR Hub (AIRXHUB)                                                                                                | TBD                    | Apr 2024      | $80               | **ACTIVE — Primary monitoring/playback interface** (replaces Solo, monitoring only). USB-C device to USB-A host (WD19DCS). 24-bit/96kHz DAC; 2× balanced 1/4" TRS monitor outs; 1× 1/4" headphone w/ independent level; 3× USB-A powered hub (Privia, Spark 40, LP120). Output-only, no ADC. TRS L/R feeds Rolls MX28 as the DAW source input. |
@@ -263,7 +263,7 @@ Amazon Echo (4th Gen) → Bluetooth / Wi-Fi Playback
 | Acoustic Guitar  | Seagull S Series SC-6W                                                                                                     | 02286309      | 2002          | $400              | Handcrafted, solid cedar top; Godin tuners                      |
 | Acoustic Guitar  | Ibanez Performance PF5NT1201                                                                                               | SQ00071493    | 2012          | $180              | Natural finish, full dreadnought                                |
 | Electric Guitar  | Epiphone Les Paul Standard Pro                                                                                             | 1205201591    | Jul 2015      | $350              | Sunburst finish, upgraded pickups                               |
-| Turntable Cart.  | Audio-Technica AT-VM95SH Shibata                                                                                           | TBD           | Jan 19, 2026  | $150              | **BACKORDERED** — 2.7×0.26 mil Shibata; for AT-LP120XUSB       |
+| Turntable Cart.  | Audio-Technica AT-VM95SH Shibata                                                                                           | TBD           | Jan 19, 2026  | $150              | **INSTALLED Feb 9, 2026** — 2.7×0.26 mil Shibata; installed on AT-LP120XUSB, replaced stock AT95E (green). Delivered to Bradenton, FL parcel locker 2026-02-09 1:35 PM ET. |
 | Strings          | D'Addario EJ16-3D Phosphor Bronze 12-53 (3-Pack)                                                                           | N/A           | Jan 2023      | $15               | Standard acoustic set                                           |
 | Capo             | Kyser Quick-Change 6-String Capo                                                                                           | TBD           | 2018          | $15               | Guitar accessory                                                |
 
@@ -384,7 +384,6 @@ Amazon Echo (4th Gen) → Bluetooth / Wi-Fi Playback
 
 | Item | Status | Action Required |
 |------|--------|-----------------|
-| AT-VM95SH Shibata Cartridge | **BACKORDERED** | Guitar Center fulfillment pending |
 | Rolls MB15b Serial | TBD | Capture rear or bottom label when accessible |
 | 1Mii RT5066R2 TX Serial | TBD | Capture unit label when accessible |
 | 1Mii RT5066R2 RX #1 Serial (Office Studio) | TBD | Capture unit label when accessible |
