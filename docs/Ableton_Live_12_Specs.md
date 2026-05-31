@@ -38,7 +38,7 @@ Ableton runtime data lives on D: (the original factory drive on GDMARCHE, retain
 | User Library | `D:\The Audiopheliac\Ableton User Library\` |
 | QSync replication target on NAS | `\\NAS87828E\The Audiopheliac\The-Audiopheliac\` |
 
-The repo `.gitignore` blocks `Ableton Cache/` and `Ableton Temp/` at any depth, plus `*.asd`, freeze artifacts, and the sample-library extensions. Project code, scripts, and docs are not stored on D:; they live on C: at `C:\Users\gillo\The-Audiopheliac\` per `CLAUDE.md`.
+The repo `.gitignore` blocks `Ableton Cache/` and `Ableton Temp/` at any depth, plus `*.asd`, freeze artifacts, and the sample-library extensions. Project code, scripts, and docs are not stored on D:; they live on C: at `C:\Users\gillo\6. The-Audiopheliac\` per `CLAUDE.md`.
 
 ---
 

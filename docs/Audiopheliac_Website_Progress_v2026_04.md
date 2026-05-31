@@ -25,7 +25,7 @@
 
 ## Repo hygiene (complete, committed, pushed)
 
-**Canonical working tree consolidated.** CLAUDE.md aligned across five sites (§2 storage block, §4 path table and warning paragraph, §11 docs tree listing, §12 session checklist) to `C:\Users\gillo\The-Audiopheliac\`. Stale `GitHub Clones\The-Audiopheliac\` references removed; the LLC folder is now correctly scoped to VALOR and Veteran Analytics LLC repos only.
+**Canonical working tree consolidated.** CLAUDE.md aligned across five sites (§2 storage block, §4 path table and warning paragraph, §11 docs tree listing, §12 session checklist) to `C:\Users\gillo\6. The-Audiopheliac\`. Stale `GitHub Clones\The-Audiopheliac\` references removed; the LLC folder is now correctly scoped to VALOR and Veteran Analytics LLC repos only.
 
 **Filename cleanup.** `docs/faimly_room_network_topology` → `docs/family_room_network_topology.md` (typo + missing extension).
 

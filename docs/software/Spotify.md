@@ -146,7 +146,7 @@ Pipeline driver auth credentials live in `config/spotify.env` (gitignored).
 | Gap report | `automation/spotify_gap_report.py` | Produces `data/manifests/spotify_missing_tracks.txt` for tracks present on Spotify but missing from the local FLAC library. |
 | Indexer (upstream dependency) | `automation/music_indexer.py` | Scans `\\NAS87828E\Music` for FLAC. Must run before `spotify_local_match.py`. Indexer exclusion rules live in `config/music_sources.json`. |
 
-Daily refresh (run from GDMARCHE at `C:\Users\gillo\The-Audiopheliac\`):
+Daily refresh (run from GDMARCHE at `C:\Users\gillo\6. The-Audiopheliac\`):
 
 ```powershell
 python automation\music_indexer.py

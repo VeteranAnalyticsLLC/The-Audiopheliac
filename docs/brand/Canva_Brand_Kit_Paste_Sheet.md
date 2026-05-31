@@ -130,10 +130,10 @@ Templates to create or set up in this brand kit:
 
 ## Reference deliverables on disk (not for Canva paste, but related)
 
-- [Visual brand kit reference card (PDF)](computer://C:\Users\gillo\The-Audiopheliac/_dev/01_brand/audiopheliac_brand_kit_reference.pdf) — one-page Frequency Cartography composition; pin in Canva as a reference.
-- [Frequency Cartography design philosophy (markdown)](computer://C:\Users\gillo\The-Audiopheliac/_dev/01_brand/frequency_cartography_design_philosophy.md) — the aesthetic worldview the reference card expresses.
-- [Brand voice guidelines v3.0](computer://C:\Users\gillo\The-Audiopheliac/brand-voice-guidelines-v3.md) — full voice and visual identity guide.
-- [Full Spectrum design tokens (CSS)](computer://C:\Users\gillo\The-Audiopheliac/site/src/styles/tokens.v3.css) — code-side source of truth for the same palette.
+- [Visual brand kit reference card (PDF)](computer://C:\Users\gillo\6. The-Audiopheliac/_dev/01_brand/audiopheliac_brand_kit_reference.pdf) — one-page Frequency Cartography composition; pin in Canva as a reference.
+- [Frequency Cartography design philosophy (markdown)](computer://C:\Users\gillo\6. The-Audiopheliac/_dev/01_brand/frequency_cartography_design_philosophy.md) — the aesthetic worldview the reference card expresses.
+- [Brand voice guidelines v3.0](computer://C:\Users\gillo\6. The-Audiopheliac/brand-voice-guidelines-v3.md) — full voice and visual identity guide.
+- [Full Spectrum design tokens (CSS)](computer://C:\Users\gillo\6. The-Audiopheliac/site/src/styles/tokens.v3.css) — code-side source of truth for the same palette.
 
 ---
 

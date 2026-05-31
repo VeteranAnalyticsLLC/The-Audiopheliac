@@ -232,7 +232,7 @@ YXC (receiver) controls remain on the Yamaha YXC client (`console/yamaha.py`). T
 ### Issue: Cockpit Roon connection drops after working
 - **Symptom:** Top bar flips to "Roon: error" or "Roon: discovering" mid-session
 - **Cause:** Roon Server container restart, network blip, or the `roonapi` connection timed out
-- **Fix:** Wait 10 s for auto-reconnect. If persistent, restart Flask: `Get-Process pythonw, python -ErrorAction SilentlyContinue | Stop-Process -Force` then `python app.py` from `C:\Users\gillo\The-Audiopheliac\console`.
+- **Fix:** Wait 10 s for auto-reconnect. If persistent, restart Flask: `Get-Process pythonw, python -ErrorAction SilentlyContinue | Stop-Process -Force` then `python app.py` from `C:\Users\gillo\6. The-Audiopheliac\console`.
 - **Verification:** Top bar returns to `Roon: <core_name>`.
 
 ---

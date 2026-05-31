@@ -57,16 +57,16 @@ Three divergent CLAUDE.md copies were discovered across the workspace during a f
 
 | File | Version | Date | Disposition |
 |------|---------|------|-------------|
-| `C:\Users\gillo\The-Audiopheliac\CLAUDE.md` | 2026.04 | Apr 29 | **Replaced** — missing Suno section, had Nashville Midnight palette |
-| `C:\Users\gillo\The-Audiopheliac\Suno\CLAUDE.md` | 2026.04.1 | Apr 30 | **Source for merge** — had Suno section + hardware updates, missing Nashville Midnight |
+| `C:\Users\gillo\6. The-Audiopheliac\CLAUDE.md` | 2026.04 | Apr 29 | **Replaced** — missing Suno section, had Nashville Midnight palette |
+| `C:\Users\gillo\6. The-Audiopheliac\Suno\CLAUDE.md` | 2026.04.1 | Apr 30 | **Source for merge** — had Suno section + hardware updates, missing Nashville Midnight |
 | `D:\The Audiopheliac\The-Audiopheliac\CLAUDE.md` | unknown | Apr 6 | **Deleted** — stale partial copy, no unique content |
-| `C:\Users\gillo\Veteran Analytics LLC\GitHub Clones\the-audiopheliac\CLAUDE.md` | original | Apr 5 | **Left in place** — git worktree file, stale; worktree should be archived separately |
+| `C:\Users\gillo\1. Veteran Analytics LLC\GitHub Clones\the-audiopheliac\CLAUDE.md` | original | Apr 5 | **Left in place** — git worktree file, stale; worktree should be archived separately |
 
 The two active files had diverged: root had Phase 2 Nashville Midnight website palette; Suno/ had hardware/signal chain updates, Suno account section, and "no memory across sessions" constraint. Neither was complete alone.
 
 ### Resolution
 
-A merged canonical CLAUDE.md (version 2026.05) was written to `C:\Users\gillo\The-Audiopheliac\CLAUDE.md` incorporating:
+A merged canonical CLAUDE.md (version 2026.05) was written to `C:\Users\gillo\6. The-Audiopheliac\CLAUDE.md` incorporating:
 - All content from Suno/CLAUDE.md (hardware, signal chains, Suno section, no-memory constraint, Project Logs header, version bump)
 - Nashville Midnight website palette from root CLAUDE.md (Phase 2 — not present in Suno/CLAUDE.md)
 - New D: drive documentation (D:\The Audiopheliac is DAW/audio data, not project code)
@@ -77,4 +77,4 @@ A merged canonical CLAUDE.md (version 2026.05) was written to `C:\Users\gillo\Th
 
 ### Rule Added
 
-CLAUDE.md lives only at the project root (`C:\Users\gillo\The-Audiopheliac\CLAUDE.md`). Subdirectory copies are forbidden. Suno/CLAUDE.md has been deleted. Future updates go to root only, committed to git.
+CLAUDE.md lives only at the project root (`C:\Users\gillo\6. The-Audiopheliac\CLAUDE.md`). Subdirectory copies are forbidden. Suno/CLAUDE.md has been deleted. Future updates go to root only, committed to git.

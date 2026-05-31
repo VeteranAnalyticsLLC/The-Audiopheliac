@@ -51,7 +51,7 @@ Environment: PowerShell 5.1+ on GDMARCHE, Python 3.10+, network reach to
 192.168.1.191 (Yamaha R-N800A).
 
 ```powershell
-cd C:\Users\gillo\The-Audiopheliac\console
+cd C:\Users\gillo\6. The-Audiopheliac\console
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -60,7 +60,7 @@ pip install -r requirements.txt
 ## Run (dev, foreground with logs)
 
 ```powershell
-cd C:\Users\gillo\The-Audiopheliac\console
+cd C:\Users\gillo\6. The-Audiopheliac\console
 .\.venv\Scripts\Activate.ps1
 python app.py
 ```
@@ -70,7 +70,7 @@ Browse `http://localhost:5000`.
 ## Run as an application (icon launch)
 
 ```powershell
-cd C:\Users\gillo\The-Audiopheliac\console
+cd C:\Users\gillo\6. The-Audiopheliac\console
 .\Create-Shortcut.ps1
 ```
 
@@ -94,7 +94,7 @@ background, normalises alpha, and writes a multi-resolution
 To regenerate after the source mark changes:
 
 ```powershell
-cd C:\Users\gillo\The-Audiopheliac\media\icons
+cd C:\Users\gillo\6. The-Audiopheliac\media\icons
 python pack_brand_icon.py
 ```
 

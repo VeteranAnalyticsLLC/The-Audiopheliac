@@ -1,0 +1,484 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unica+One&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0A0A0B;
+  --ink-2: #121214;
+  --ink-3: #1A1A1E;
+  --paper: #F5F5F7;
+  --paper-dim: rgba(245,245,247,0.65);
+  --paper-muted: rgba(245,245,247,0.42);
+  --hairline: rgba(255,255,255,0.08);
+  --hairline-2: rgba(255,255,255,0.14);
+  --sunlamp: #F8E91F;
+  --spring: #99E257;
+  --signal: #41D99A;
+  --cyan: #0ABED3;
+  --sapphire: #0F82DF;
+  --indigo: #5E54D4;
+  --magenta: #C24CC8;
+  --success: var(--signal);
+  --warning: var(--sunlamp);
+  --danger: #E24B6A;
+  --info: var(--sapphire);
+  --font-display: 'Unica One', system-ui, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --radius: 10px;
+  --radius-sm: 6px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.cockpit-root {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  padding: 0;
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--hairline);
+  background: linear-gradient(180deg, var(--ink-2) 0%, var(--ink) 100%);
+  flex-wrap: wrap;
+}
+.mark-wrap { width: 48px; height: 48px; flex: none; }
+.mark-wrap svg { width: 100%; height: 100%; display: block; }
+.brand-titles { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+.brand-name { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 0.04em; color: var(--paper); line-height: 1; }
+.brand-sub { font-size: 0.72rem; color: var(--paper-muted); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; }
+.status { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.65rem; border: 1px solid var(--hairline); border-radius: 999px; font-size: 0.75rem; color: var(--paper-dim); background: var(--ink-2); }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 0 2px rgba(65,217,154,0.18); }
+.clock { font-variant-numeric: tabular-nums; font-size: 0.78rem; color: var(--paper-dim); padding: 0.35rem 0.6rem; border: 1px solid var(--hairline); border-radius: var(--radius-sm); background: var(--ink-2); min-width: 88px; text-align: center; }
+.shell { max-width: 100%; padding: 1rem 1rem 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.card { background: var(--ink-2); border: 1px solid var(--hairline); border-radius: var(--radius); padding: 1rem 1rem 0.9rem; }
+.card-header { display: flex; align-items: center; justify-content: space-between; margin: 0 0 0.75rem; flex-wrap: wrap; gap: 0.4rem; }
+.card-header h2 { margin: 0; font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.18em; color: var(--paper); text-transform: uppercase; font-weight: 400; }
+.card-meta { font-size: 0.72rem; color: var(--paper-muted); letter-spacing: 0.06em; }
+.now { display: grid; grid-template-columns: 180px 1fr; gap: 1rem; align-items: center; }
+@media (max-width: 520px) { .now { grid-template-columns: 1fr; } }
+.now-art { width: 180px; height: 180px; border-radius: var(--radius); background: linear-gradient(135deg, var(--signal) 0%, var(--sapphire) 50%, var(--indigo) 100%); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.now-art::before { content: ''; position: absolute; inset: 20px; border-radius: 50%; background: radial-gradient(circle at center, var(--ink) 0%, var(--ink) 18%, transparent 19%, transparent 22%, var(--ink-2) 23%, var(--ink-2) 24%, transparent 25%, transparent 100%); }
+.now-art::after { content: ''; position: absolute; inset: 72px; border-radius: 50%; background: var(--sunlamp); display: block; }
+.now-art-label { position: absolute; bottom: 10px; left: 10px; font-size: 0.65rem; color: rgba(245,245,247,0.55); letter-spacing: 0.1em; text-transform: uppercase; z-index: 1; }
+.now-info { display: flex; flex-direction: column; gap: 0.25rem; }
+.now-track { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 0.02em; line-height: 1.05; color: var(--paper); margin: 0; }
+.now-artist { font-size: 0.95rem; color: var(--sunlamp); margin: 0; font-weight: 500; }
+.now-album { font-size: 0.82rem; color: var(--paper-dim); margin: 0; }
+.now-meta { margin-top: 0.4rem; display: flex; gap: 1rem; font-size: 0.72rem; color: var(--paper-muted); letter-spacing: 0.04em; text-transform: uppercase; flex-wrap: wrap; }
+.now-meta span strong { color: var(--paper-dim); font-weight: 500; margin-left: 0.3rem; text-transform: none; letter-spacing: 0; font-size: 0.78rem; }
+.scrub { margin-top: 0.75rem; display: flex; align-items: center; gap: 0.6rem; font-size: 0.72rem; color: var(--paper-muted); font-variant-numeric: tabular-nums; }
+.scrub-bar { flex: 1; height: 4px; background: var(--hairline); border-radius: 999px; position: relative; overflow: hidden; }
+.scrub-fill { position: absolute; inset: 0 60% 0 0; background: linear-gradient(90deg, var(--sunlamp) 0%, var(--spring) 100%); border-radius: 999px; }
+.scrub-fill::after { content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border-radius: 50%; background: var(--sunlamp); border: 2px solid var(--ink); }
+.transport { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.8rem; flex-wrap: wrap; }
+.t-btn { width: 38px; height: 38px; border-radius: 50%; background: transparent; border: 1px solid var(--hairline-2); color: var(--paper); font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: border-color 120ms, color 120ms, background 120ms; font-family: inherit; }
+.t-btn:hover { border-color: var(--sunlamp); color: var(--sunlamp); }
+.t-btn.primary { background: var(--sunlamp); color: var(--ink); border-color: var(--sunlamp); width: 48px; height: 48px; font-size: 1.1rem; }
+.t-btn.primary:hover { background: var(--magenta); border-color: var(--magenta); color: var(--paper); }
+.t-spacer { flex: 1; }
+.t-toggle { background: transparent; border: 1px solid var(--hairline-2); color: var(--paper-dim); padding: 0.4rem 0.65rem; border-radius: 999px; font-size: 0.72rem; cursor: pointer; letter-spacing: 0.05em; font-family: inherit; text-transform: uppercase; }
+.t-toggle.on { color: var(--sunlamp); border-color: var(--sunlamp); background: rgba(248,233,31,0.06); }
+.grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 1rem; }
+@media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
+.zones { display: flex; flex-direction: column; gap: 0.5rem; }
+.zone { display: grid; grid-template-columns: auto 1fr auto; gap: 0.7rem; align-items: center; padding: 0.7rem 0.85rem; border: 1px solid var(--hairline); border-radius: var(--radius-sm); background: var(--ink); transition: border-color 120ms, background 120ms; cursor: pointer; }
+.zone.active { border-color: var(--signal); background: linear-gradient(90deg, rgba(65,217,154,0.07) 0%, transparent 100%); }
+.zone-led { width: 9px; height: 9px; border-radius: 50%; background: var(--hairline-2); }
+.zone.active .zone-led { background: var(--signal); box-shadow: 0 0 0 3px rgba(65,217,154,0.18); }
+.zone-title { display: flex; flex-direction: column; gap: 2px; }
+.zone-name { font-weight: 500; font-size: 0.88rem; }
+.zone-output { font-size: 0.72rem; color: var(--paper-muted); }
+.zone-vol { display: flex; align-items: center; gap: 0.5rem; }
+.zone-vol input[type="range"] { width: 90px; accent-color: var(--sunlamp); }
+.zone-vol .vol-num { font-variant-numeric: tabular-nums; font-size: 0.78rem; color: var(--paper-dim); min-width: 24px; text-align: right; }
+.yamaha-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-bottom: 0.75rem; }
+.tile { border: 1px solid var(--hairline); border-radius: var(--radius-sm); padding: 0.65rem 0.8rem; background: var(--ink); display: flex; flex-direction: column; gap: 0.3rem; }
+.tile-label { font-size: 0.68rem; color: var(--paper-muted); letter-spacing: 0.12em; text-transform: uppercase; }
+.tile-value { font-size: 0.95rem; font-weight: 500; color: var(--paper); }
+.tile-row { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+.power { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.4rem 0.7rem; border-radius: 999px; border: 1px solid var(--signal); color: var(--signal); background: rgba(65,217,154,0.08); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: inherit; }
+.power-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 0 2px rgba(65,217,154,0.18); }
+.sources { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 0.35rem; }
+.src-btn { background: transparent; border: 1px solid var(--hairline); color: var(--paper-dim); border-radius: var(--radius-sm); padding: 0.45rem 0.5rem; font-size: 0.75rem; cursor: pointer; text-align: center; text-transform: capitalize; font-family: inherit; transition: all 120ms; }
+.src-btn:hover { border-color: var(--sunlamp); color: var(--sunlamp); }
+.src-btn.active { background: var(--sunlamp); border-color: var(--sunlamp); color: var(--ink); font-weight: 600; }
+.master-vol { margin-top: 0.7rem; display: flex; align-items: center; gap: 0.7rem; }
+.master-vol label { font-size: 0.72rem; color: var(--paper-muted); letter-spacing: 0.1em; text-transform: uppercase; min-width: 48px; }
+.master-vol input[type="range"] { flex: 1; accent-color: var(--sunlamp); }
+.master-vol-num { font-variant-numeric: tabular-nums; font-size: 0.95rem; font-weight: 600; color: var(--sunlamp); min-width: 30px; text-align: right; }
+.presets { margin-top: 0.7rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; }
+.preset { background: transparent; border: 1px solid var(--hairline); border-radius: var(--radius-sm); padding: 0.45rem 0.35rem; color: var(--paper-dim); text-align: center; cursor: pointer; font-size: 0.72rem; font-family: inherit; }
+.preset-num { display: block; font-size: 0.65rem; color: var(--paper-muted); letter-spacing: 0.06em; margin-bottom: 1px; }
+.preset:hover { border-color: var(--sapphire); color: var(--sapphire); }
+.search-row { display: flex; gap: 0.4rem; margin-bottom: 0.7rem; }
+.search-input { flex: 1; background: var(--ink); border: 1px solid var(--hairline); border-radius: var(--radius-sm); padding: 0.5rem 0.7rem; color: var(--paper); font-family: inherit; font-size: 0.82rem; }
+.search-input:focus { outline: none; border-color: var(--sunlamp); }
+.search-input::placeholder { color: var(--paper-muted); }
+.tabs { display: flex; gap: 0.3rem; margin-bottom: 0.6rem; border-bottom: 1px solid var(--hairline); }
+.tab { background: transparent; border: none; color: var(--paper-muted); padding: 0.45rem 0.7rem; font-size: 0.78rem; font-family: inherit; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; letter-spacing: 0.04em; }
+.tab.active { color: var(--paper); border-bottom-color: var(--sunlamp); }
+.tab:hover { color: var(--paper); }
+.lib-list { display: flex; flex-direction: column; gap: 0.25rem; max-height: 260px; overflow-y: auto; }
+.lib-item { display: grid; grid-template-columns: 36px 1fr auto; gap: 0.6rem; align-items: center; padding: 0.45rem 0.55rem; border-radius: var(--radius-sm); border: 1px solid transparent; background: var(--ink); cursor: pointer; transition: border-color 100ms; }
+.lib-item:hover { border-color: var(--hairline-2); }
+.lib-item.playing { border-color: var(--signal); background: rgba(65,217,154,0.05); }
+.lib-thumb { width: 36px; height: 36px; border-radius: 4px; background: linear-gradient(135deg, var(--indigo) 0%, var(--magenta) 100%); position: relative; overflow: hidden; }
+.lib-thumb.v2 { background: linear-gradient(135deg, var(--sunlamp) 0%, var(--signal) 100%); }
+.lib-thumb.v3 { background: linear-gradient(135deg, var(--cyan) 0%, var(--sapphire) 100%); }
+.lib-thumb.v4 { background: linear-gradient(135deg, var(--magenta) 0%, var(--sapphire) 100%); }
+.lib-thumb.v5 { background: linear-gradient(135deg, var(--spring) 0%, var(--cyan) 100%); }
+.lib-thumb.v6 { background: linear-gradient(135deg, var(--sapphire) 0%, var(--indigo) 100%); }
+.lib-thumb.v7 { background: linear-gradient(135deg, var(--magenta) 0%, var(--sunlamp) 100%); }
+.lib-thumb::after { content: ''; position: absolute; inset: 7px; border-radius: 50%; background: var(--ink); border: 2px solid rgba(0,0,0,0.4); }
+.lib-text { display: flex; flex-direction: column; min-width: 0; }
+.lib-main { font-weight: 500; font-size: 0.82rem; color: var(--paper); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lib-sub { font-size: 0.72rem; color: var(--paper-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lib-kind { font-size: 0.65rem; color: var(--paper-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.lib-item.playing .lib-kind { color: var(--signal); }
+.queue-list { display: flex; flex-direction: column; gap: 0.25rem; }
+.queue-item { display: grid; grid-template-columns: 22px 1fr auto; gap: 0.6rem; align-items: center; padding: 0.4rem 0.6rem; border-radius: var(--radius-sm); background: var(--ink); border: 1px solid transparent; }
+.queue-item:hover { border-color: var(--hairline); }
+.q-num { font-variant-numeric: tabular-nums; font-size: 0.72rem; color: var(--paper-muted); text-align: right; }
+.q-text { min-width: 0; }
+.q-main { font-size: 0.8rem; color: var(--paper); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.q-sub { font-size: 0.7rem; color: var(--paper-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.q-len { font-variant-numeric: tabular-nums; font-size: 0.72rem; color: var(--paper-muted); }
+.footer-bar { text-align: center; color: var(--paper-muted); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 0 0; }
+.footer-bar .ver { color: var(--paper-dim); margin-right: 0.4rem; }
+.footer-bar .accent { color: var(--sunlamp); }
+</style>
+
+<div class="cockpit-root">
+<div class="topbar">
+  <div class="mark-wrap" aria-hidden="true">
+    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="m-yl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8E91F"/><stop offset="1" stop-color="#99E257"/></linearGradient>
+        <linearGradient id="m-gc" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#99E257"/><stop offset="1" stop-color="#0ABED3"/></linearGradient>
+        <linearGradient id="m-cb" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#0ABED3"/><stop offset="1" stop-color="#0F82DF"/></linearGradient>
+        <linearGradient id="m-bm" x1="1" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#0F82DF"/><stop offset="0.5" stop-color="#5E54D4"/><stop offset="1" stop-color="#C24CC8"/></linearGradient>
+      </defs>
+      <g transform="translate(512 512)">
+        <path d="M 0 -468 A 468 468 0 0 0 -468 0 L -400 0 A 400 400 0 0 1 0 -400 Z" fill="url(#m-yl)"/>
+        <path d="M 0 -360 A 360 360 0 0 0 -360 0 L -300 0 A 300 300 0 0 1 0 -300 Z" fill="url(#m-yl)"/>
+        <path d="M 0 -270 A 270 270 0 0 0 -270 0 L -210 0 A 210 210 0 0 1 0 -210 Z" fill="url(#m-yl)"/>
+        <path d="M -468 0 A 468 468 0 0 0 0 468 L 0 400 A 400 400 0 0 1 -400 0 Z" fill="url(#m-gc)"/>
+        <path d="M -360 0 A 360 360 0 0 0 0 360 L 0 300 A 300 300 0 0 1 -300 0 Z" fill="url(#m-gc)"/>
+        <path d="M -270 0 A 270 270 0 0 0 0 270 L 0 210 A 210 210 0 0 1 -210 0 Z" fill="url(#m-gc)"/>
+        <path d="M 0 468 A 468 468 0 0 0 468 0 L 400 0 A 400 400 0 0 1 0 400 Z" fill="url(#m-cb)"/>
+        <path d="M 0 360 A 360 360 0 0 0 360 0 L 300 0 A 300 300 0 0 1 0 300 Z" fill="url(#m-cb)"/>
+        <path d="M 0 270 A 270 270 0 0 0 270 0 L 210 0 A 210 210 0 0 1 0 210 Z" fill="url(#m-cb)"/>
+        <path d="M 468 0 A 468 468 0 0 0 0 -468 L 0 -400 A 400 400 0 0 1 400 0 Z" fill="url(#m-bm)" opacity="0.92"/>
+        <path d="M 360 0 A 360 360 0 0 0 0 -360 L 0 -300 A 300 300 0 0 1 300 0 Z" fill="url(#m-bm)" opacity="0.6"/>
+        <path d="M 270 0 A 270 270 0 0 0 0 -270 L 0 -210 A 210 210 0 0 1 210 0 Z" fill="url(#m-bm)" opacity="0.35"/>
+        <rect x="-6" y="-468" width="12" height="936" fill="#0A0A0B"/>
+        <rect x="-468" y="-6" width="936" height="12" fill="#0A0A0B"/>
+        <circle r="22" fill="#41D99A"/>
+      </g>
+      <g transform="translate(512 512)">
+        <line x1="330" y1="-340" x2="180" y2="-100" stroke="#F5F5F7" stroke-width="14" stroke-linecap="round"/>
+        <circle cx="330" cy="-340" r="32" fill="#0A0A0B" stroke="#F5F5F7" stroke-width="8"/>
+        <circle cx="330" cy="-340" r="12" fill="#F5F5F7"/>
+        <polygon points="180,-100 210,-130 230,-90 200,-60" fill="#F5F5F7"/>
+        <circle cx="205" cy="-75" r="8" fill="#F8E91F"/>
+      </g>
+    </svg>
+  </div>
+  <div class="brand-titles">
+    <div class="brand-name">The Audiopheliac</div>
+    <div class="brand-sub">Cockpit · v0.3 mockup</div>
+  </div>
+  <div class="status"><span class="status-dot"></span> Roon Core connected</div>
+  <div class="status"><span class="status-dot"></span> YXC: R-N800A</div>
+  <div class="clock" id="clock">--:-- --</div>
+</div>
+
+<div class="shell">
+
+  <section class="card">
+    <div class="card-header">
+      <h2>Now playing</h2>
+      <span class="card-meta">Zone: Family Room · AirPlay 2 → Yamaha R-N800A</span>
+    </div>
+    <div class="now">
+      <div class="now-art"><span class="now-art-label">Roon</span></div>
+      <div class="now-info">
+        <h3 class="now-track">Starting Over</h3>
+        <p class="now-artist">Chris Stapleton</p>
+        <p class="now-album">Starting Over · 2020 · Mercury Nashville</p>
+        <div class="now-meta">
+          <span>Format <strong>FLAC 24/96</strong></span>
+          <span>Bitrate <strong>2,304 kbps</strong></span>
+          <span>Signal path <strong>Lossless</strong></span>
+        </div>
+        <div class="scrub">
+          <span>1:48</span>
+          <div class="scrub-bar"><div class="scrub-fill"></div></div>
+          <span>4:32</span>
+        </div>
+        <div class="transport">
+          <button class="t-btn" aria-label="Shuffle">↺</button>
+          <button class="t-btn" aria-label="Previous">⏮</button>
+          <button class="t-btn primary" id="play-btn" aria-label="Play / pause">⏸</button>
+          <button class="t-btn" aria-label="Next">⏭</button>
+          <button class="t-btn" aria-label="Repeat">⟳</button>
+          <span class="t-spacer"></span>
+          <button class="t-toggle on">Shuffle off</button>
+          <button class="t-toggle">Repeat off</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <div style="display:flex; flex-direction:column; gap:1rem;">
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Roon zones</h2>
+          <span class="card-meta">2 zones · 1 playing</span>
+        </div>
+        <div class="zones">
+          <div class="zone active" data-zone="family">
+            <span class="zone-led"></span>
+            <div class="zone-title">
+              <span class="zone-name">Family Room</span>
+              <span class="zone-output">AirPlay 2 → Yamaha R-N800A · 192.168.1.191</span>
+            </div>
+            <div class="zone-vol">
+              <input type="range" min="0" max="100" value="42" step="1" aria-label="Family Room volume">
+              <span class="vol-num">42</span>
+            </div>
+          </div>
+          <div class="zone" data-zone="studio">
+            <span class="zone-led"></span>
+            <div class="zone-title">
+              <span class="zone-name">Studio</span>
+              <span class="zone-output">M-Audio AIR HUB ASIO · Roon Bridge · GDMARCHE</span>
+            </div>
+            <div class="zone-vol">
+              <input type="range" min="0" max="100" value="68" step="1" aria-label="Studio volume">
+              <span class="vol-num">68</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Yamaha R-N800A</h2>
+          <span class="card-meta">YXC 2.17 · firmware 1.13 build 2404</span>
+        </div>
+        <div class="yamaha-grid">
+          <div class="tile">
+            <span class="tile-label">Power</span>
+            <div class="tile-row">
+              <button class="power" id="power-btn"><span class="power-dot"></span> On</button>
+              <span class="tile-value" style="font-size:0.78rem;color:var(--paper-muted);">7h 42m up</span>
+            </div>
+          </div>
+          <div class="tile">
+            <span class="tile-label">Mute</span>
+            <div class="tile-row">
+              <span class="tile-value" id="mute-state">Off</span>
+              <button class="t-toggle" id="mute-btn" style="font-size:0.65rem;padding:0.25rem 0.5rem;">Toggle</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="tile-label" style="display:block;margin-bottom:0.4rem;">Source</span>
+          <div class="sources">
+            <button class="src-btn active">AirPlay</button>
+            <button class="src-btn">Net Radio</button>
+            <button class="src-btn">Optical 1</button>
+            <button class="src-btn">Optical 2</button>
+            <button class="src-btn">Line 1</button>
+            <button class="src-btn">Phono</button>
+            <button class="src-btn">Bluetooth</button>
+            <button class="src-btn">Spotify</button>
+          </div>
+        </div>
+        <div class="master-vol">
+          <label>Master</label>
+          <input type="range" min="0" max="100" value="42" step="1" aria-label="Master volume">
+          <span class="master-vol-num">42</span>
+        </div>
+        <div>
+          <span class="tile-label" style="display:block;margin:0.7rem 0 0.4rem;">Net Radio presets</span>
+          <div class="presets">
+            <button class="preset"><span class="preset-num">P1</span>KCRW Eclectic</button>
+            <button class="preset"><span class="preset-num">P2</span>WSM 650 AM</button>
+            <button class="preset"><span class="preset-num">P3</span>WMOT Roots</button>
+            <button class="preset"><span class="preset-num">P4</span>KEXP Seattle</button>
+            <button class="preset"><span class="preset-num">P5</span>BBC 6 Music</button>
+            <button class="preset"><span class="preset-num">P6</span>Radio Paradise</button>
+            <button class="preset"><span class="preset-num">P7</span>SomaFM Boot</button>
+            <button class="preset"><span class="preset-num">P8</span>---</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:1rem;">
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Roon library</h2>
+          <span class="card-meta">13,450 tracks · 1,022 albums · 165 artists</span>
+        </div>
+        <div class="search-row">
+          <input type="search" class="search-input" placeholder="Search artist, album, or track...">
+        </div>
+        <div class="tabs">
+          <button class="tab active">Recent</button>
+          <button class="tab">Albums</button>
+          <button class="tab">Artists</button>
+          <button class="tab">Playlists</button>
+          <button class="tab">Genres</button>
+        </div>
+        <div class="lib-list">
+          <div class="lib-item playing">
+            <div class="lib-thumb"></div>
+            <div class="lib-text"><span class="lib-main">Starting Over</span><span class="lib-sub">Chris Stapleton · Starting Over</span></div>
+            <span class="lib-kind">Playing</span>
+          </div>
+          <div class="lib-item">
+            <div class="lib-thumb v2"></div>
+            <div class="lib-text"><span class="lib-main">Feathered Indians</span><span class="lib-sub">Tyler Childers · Purgatory</span></div>
+            <span class="lib-kind">Track</span>
+          </div>
+          <div class="lib-item">
+            <div class="lib-thumb v3"></div>
+            <div class="lib-text"><span class="lib-main">Broken Window Serenade</span><span class="lib-sub">Whiskey Myers · Mud</span></div>
+            <span class="lib-kind">Track</span>
+          </div>
+          <div class="lib-item">
+            <div class="lib-thumb v4"></div>
+            <div class="lib-text"><span class="lib-main">Sultans of Swing</span><span class="lib-sub">Dire Straits · Dire Straits</span></div>
+            <span class="lib-kind">Track</span>
+          </div>
+          <div class="lib-item">
+            <div class="lib-thumb v5"></div>
+            <div class="lib-text"><span class="lib-main">Mannish Boy</span><span class="lib-sub">Muddy Waters · Hard Again</span></div>
+            <span class="lib-kind">Track</span>
+          </div>
+          <div class="lib-item">
+            <div class="lib-thumb v6"></div>
+            <div class="lib-text"><span class="lib-main">Edge of Seventeen</span><span class="lib-sub">Stevie Nicks · Bella Donna</span></div>
+            <span class="lib-kind">Track</span>
+          </div>
+          <div class="lib-item">
+            <div class="lib-thumb v7"></div>
+            <div class="lib-text"><span class="lib-main">Rita Is Gone</span><span class="lib-sub">The Marcus King Band · Carolina Confessions</span></div>
+            <span class="lib-kind">Track</span>
+          </div>
+          <div class="lib-item">
+            <div class="lib-thumb"></div>
+            <div class="lib-text"><span class="lib-main">Neon Moon</span><span class="lib-sub">Brooks &amp; Dunn · Brand New Man</span></div>
+            <span class="lib-kind">Track</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Up next</h2>
+          <span class="card-meta">8 in queue · 33 min remaining</span>
+        </div>
+        <div class="queue-list">
+          <div class="queue-item"><span class="q-num">1</span><div class="q-text"><span class="q-main">Feathered Indians</span><span class="q-sub">Tyler Childers</span></div><span class="q-len">3:55</span></div>
+          <div class="queue-item"><span class="q-num">2</span><div class="q-text"><span class="q-main">Sultans of Swing</span><span class="q-sub">Dire Straits</span></div><span class="q-len">5:50</span></div>
+          <div class="queue-item"><span class="q-num">3</span><div class="q-text"><span class="q-main">Mannish Boy</span><span class="q-sub">Muddy Waters</span></div><span class="q-len">5:35</span></div>
+          <div class="queue-item"><span class="q-num">4</span><div class="q-text"><span class="q-main">Broken Window Serenade</span><span class="q-sub">Whiskey Myers</span></div><span class="q-len">4:13</span></div>
+          <div class="queue-item"><span class="q-num">5</span><div class="q-text"><span class="q-main">Edge of Seventeen</span><span class="q-sub">Stevie Nicks</span></div><span class="q-len">5:30</span></div>
+          <div class="queue-item"><span class="q-num">6</span><div class="q-text"><span class="q-main">Rita Is Gone</span><span class="q-sub">The Marcus King Band</span></div><span class="q-len">4:47</span></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <span class="ver">v0.3</span> <span class="accent">The Audiopheliac Cockpit</span> · Full Spectrum mockup · 2026-05-11
+  </div>
+
+</div>
+</div>
+
+<script>
+(function(){
+  var $ = function(s,c){return (c||document).querySelector(s)};
+  var $$ = function(s,c){return Array.from((c||document).querySelectorAll(s))};
+
+  var playBtn = $('#play-btn');
+  var playing = true;
+  function setPlayIcon(){ playBtn.textContent = playing ? '⏸' : '▶'; }
+  setPlayIcon();
+  playBtn.addEventListener('click', function(){ playing = !playing; setPlayIcon(); });
+
+  $$('.zone').forEach(function(z){
+    z.addEventListener('click', function(e){
+      if(e.target.tagName === 'INPUT') return;
+      $$('.zone').forEach(function(x){ x.classList.remove('active'); });
+      z.classList.add('active');
+    });
+  });
+
+  $$('.zone-vol input').forEach(function(s){
+    s.addEventListener('input', function(e){
+      var num = e.target.parentElement.querySelector('.vol-num');
+      num.textContent = Math.round(e.target.value);
+    });
+  });
+
+  var mvol = $('.master-vol input');
+  var mvolNum = $('.master-vol-num');
+  if(mvol) mvol.addEventListener('input', function(){ mvolNum.textContent = Math.round(mvol.value); });
+
+  $$('.src-btn').forEach(function(b){
+    b.addEventListener('click', function(){
+      $$('.src-btn').forEach(function(x){ x.classList.remove('active'); });
+      b.classList.add('active');
+    });
+  });
+
+  $$('.tab').forEach(function(t){
+    t.addEventListener('click', function(){
+      $$('.tab').forEach(function(x){ x.classList.remove('active'); });
+      t.classList.add('active');
+    });
+  });
+
+  $$('.t-toggle').forEach(function(t){
+    t.addEventListener('click', function(){
+      t.classList.toggle('on');
+      var label = t.textContent.trim();
+      if(label.endsWith('off')) t.textContent = label.replace(' off', ' on');
+      else if(label.endsWith('on')) t.textContent = label.replace(' on', ' off');
+    });
+  });
+
+  var muteBtn = $('#mute-btn');
+  var muteState = $('#mute-state');
+  if(muteBtn) muteBtn.addEventListener('click', function(){
+    var isMuted = muteState.textContent === 'On';
+    muteState.textContent = isMuted ? 'Off' : 'On';
+    muteState.style.color = isMuted ? 'var(--paper)' : 'var(--danger)';
+  });
+
+  function tick(){
+    var d = new Date();
+    var h = d.getHours();
+    var m = d.getMinutes().toString().padStart(2,'0');
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    var clk = $('#clock');
+    if(clk) clk.textContent = h + ':' + m + ' ' + ampm;
+  }
+  tick();
+  setInterval(tick, 30000);
+})();
+</script>

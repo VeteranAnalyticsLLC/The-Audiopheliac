@@ -50,5 +50,5 @@ WHOIS information is redacted from public ICANN listing by Cloudflare default. P
 
 - Domain registered 2026-04-19 under Veteran Analytics LLC for The Audiopheliac brand
 - `audiopheliac.com` (bare domain) is a registry premium — listed at $249 on GoDaddy; not registered at this time
-- Cloudflare API key stored at: `C:\Users\gillo\Veteran Analytics LLC\Business\Credentials\Cloudflare_API_Key.txt`
+- Cloudflare API key stored at: `C:\Users\gillo\1. Veteran Analytics LLC\Business\Credentials\Cloudflare_API_Key.txt`
 - Decision: registered personally/under LLC for now; standalone Audiopheliac LLC to be evaluated if/when revenue warrants

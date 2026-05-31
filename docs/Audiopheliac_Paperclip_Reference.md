@@ -2,9 +2,9 @@
 
 > **DEPRECATED 2026-05-18.** Paperclip is no longer part of The Audiopheliac's active workflow. This document is retained as historical platform-mechanics archive only. It is NOT a guide to current Audiopheliac workflow. The active workflow is Cowork + Rafa with the dual-write close record (Slack `#theaudiopheliac` + `docs/daily_log.md`). See `CLAUDE.md` §PAPERCLIP SURFACE for the deprecation notice and §HISTORY entry dated 2026-05-18 for the rationale. Do not draft Rafa CLI prompts based on the protocols documented below; they are not in effect.
 
-**Scope:** The Audiopheliac ONLY. Audiopheliac-specific revision derived from the VAL cross-project reference (`C:\Users\gillo\Veteran Analytics LLC\Paperclip_Reference.md`).
+**Scope:** The Audiopheliac ONLY. Audiopheliac-specific revision derived from the VAL cross-project reference (`C:\Users\gillo\1. Veteran Analytics LLC\Paperclip_Reference.md`).
 
-> **Distinct file.** This document is the Audiopheliac-applicable revision. It lives at `C:\Users\gillo\The-Audiopheliac\docs\Audiopheliac_Paperclip_Reference.md`. Do NOT confuse with the VAL parent at `C:\Users\gillo\Veteran Analytics LLC\Paperclip_Reference.md`, which covers VeteranAnalytics.com + VeteranIntel.org operational specifics. When platform-mechanics content drifts between the two files, the canonical source for both is the official paperclip.ing documentation, not either of these caches.
+> **Distinct file.** This document is the Audiopheliac-applicable revision. It lives at `C:\Users\gillo\6. The-Audiopheliac\docs\Audiopheliac_Paperclip_Reference.md`. Do NOT confuse with the VAL parent at `C:\Users\gillo\1. Veteran Analytics LLC\Paperclip_Reference.md`, which covers VeteranAnalytics.com + VeteranIntel.org operational specifics. When platform-mechanics content drifts between the two files, the canonical source for both is the official paperclip.ing documentation, not either of these caches.
 
 **Source lineage:** Official paperclip.ing documentation, fetched and curated 2026-05-10 (VAL S90). Audiopheliac revision: 2026-05-11.
 
@@ -3230,7 +3230,7 @@ Red pill appears at top of project page when paused by budget policy. Resolution
 **VETA MERIT project** (id `8334f050-3f05-487a-9c30-50956ea0660b`):
 - Currently zero open issues + no `cwd`/`repoUrl` binding visible in state.json
 - When VETA agents start real work, recommended Configuration:
-  - `cwd` = `C:\Users\gillo\Veteran Analytics LLC\GitHub Clones\veteran-analytics` (VETA Backend's primary work area)
+  - `cwd` = `C:\Users\gillo\1. Veteran Analytics LLC\GitHub Clones\veteran-analytics` (VETA Backend's primary work area)
   - `repoUrl` = the corresponding GitHub repo URL
   - Env vars: nothing project-scoped initially — `ANTHROPIC_API_KEY` belongs at agent level per §27 secret hygiene
 - If isolated workspaces ever enabled:
@@ -3660,7 +3660,7 @@ Isolation cost: each worktree needs own `node_modules` (or equivalent), own dev 
   - Default mode: `isolated`
   - Base ref: `main`
   - Branch template: `paperclip/{issueIdentifier}` or `veta/{issueIdentifier}`
-  - Worktree parent: `C:\Users\gillo\Veteran Analytics LLC\GitHub Clones\.paperclip-worktrees\veta\`
+  - Worktree parent: `C:\Users\gillo\1. Veteran Analytics LLC\GitHub Clones\.paperclip-worktrees\veta\`
   - Provision command: depends on actual stack (`npm ci` if veteran-analytics uses npm, `pnpm install` if pnpm)
   - Teardown command: cleanup only, no destructive ops
   - Cleanup command: kill any stuck Cloud Run local emulator processes if used
@@ -4576,7 +4576,7 @@ Per docs verbatim: "If the agent doesn't load the skill when it should, the body
 | `bluf-format-writer` | "Use when writing BLUF-style executive summaries." | The BLUF (Bottom Line Up Front) format conventions |
 
 Recommended path:
-1. Author locally at `C:\Users\gillo\Veteran Analytics LLC\VeteranIntel\skills\{name}\` while iterating
+1. Author locally at `C:\Users\gillo\1. Veteran Analytics LLC\VeteranIntel\skills\{name}\` while iterating
 2. Promote to GitHub `VeteranAnalyticsLLC/veteranintel-skills` repo once stable → pinned commit + diff review
 3. Attach via `desiredSkills` to VETA Backend + Frontend agents
 
@@ -4870,7 +4870,7 @@ Agent's heartbeat:
 **Nightly VETA backup routine** is now a recipe:
 - Hire dedicated backup-owner agent (CEO role) on VETA company OR have an existing CEO agent (if/when hired) take this on
 - Routine fires `0 2 * * *` UTC daily
-- Uploads bundle to `C:\Users\gillo\Veteran Analytics LLC\paperclip-backups\` OR NAS at `V:\` OR future cloud storage
+- Uploads bundle to `C:\Users\gillo\1. Veteran Analytics LLC\paperclip-backups\` OR NAS at `V:\` OR future cloud storage
 - Retention pinned in agent instructions: "7 daily, 4 weekly, 12 monthly"
 
 **Disaster recovery (re-create VETA from backup)** requires Gill personally — only the board route at `POST /api/companies/import` with `target.mode = new_company` can do this. CEO-safe routes refuse. This is the right safety rail.
