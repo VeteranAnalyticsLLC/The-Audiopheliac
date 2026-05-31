@@ -1,8 +1,10 @@
 # AGENTS.md — The Audiopheliac | Cowork Project Instructions
 
-**Version:** 2026.05.2 | **Owner:** Gillon "Gill" Marchetti (MarcArmy2003)
+**Version:** 2026.05.3 | **Owner:** Gillon "Gill" Marchetti (MarcArmy2003)
 
-**Project Folder:** `C:\Users\gillo\The-Audiopheliac`
+> **2026-05-28 reorganization note:** Project folder renumbered from `The-Audiopheliac` to `6. The-Audiopheliac` per `C:\Users\gillo\MIGRATION_MASTER_2026-05-28.md`. All path references in this file updated. VAL paths renumbered to `1. Veteran Analytics LLC`. NAS share names unchanged. CLAUDE.md (v2026.05.3) is the parallel canonical for Cowork project instructions surfaces; this AGENTS.md governs Codex-CLI/Rafa surfaces. Keep them in parity.
+
+**Project Folder:** `C:\Users\gillo\6. The-Audiopheliac`
 **GitHub:** https://github.com/MarcArmy2003/The-Audiopheliac
 **Website:** theaudiopheliac.com (Cloudflare Pages, domain registered 2026-04-19, expiry 2028-04-19)
 
@@ -43,7 +45,7 @@ The Audiopheliac is Gill Marchetti's lifestyle brand at the intersection of audi
 
 ## RAFA (Codex CLI) — PRE-AUTHORIZATION
 
-**Settings file:** `C:\Users\gillo\The-Audiopheliac\.Codex\settings.json`
+**Settings file:** `C:\Users\gillo\6. The-Audiopheliac\.Codex\settings.json`
 
 All tools listed in `permissions.allow` run without prompting Gill for approval. This is intentional and permanent. Rafa is trusted to scope full tasks end-to-end including git operations and deployments.
 
@@ -59,7 +61,7 @@ All tools listed in `permissions.allow` run without prompting Gill for approval.
 
 **Behavioral rule for Rafa:** When a task has been scoped and Sully/Gill have provided context, execute the entire scope without interrupting for git checkpoints or deployment confirmations. Pre-auth means the task runs start to finish. If something goes wrong, report it in the closeout summary — do not pause mid-task to seek permission already granted.
 
-**Scope independence:** This repo is independent of VALOR scope. When Rafa is addressed directly for Audiopheliac tasks, that address is sufficient authorization — no VALOR scope-guard confirmation required. The canonical working tree is C:\Users\gillo\The-Audiopheliac. Do not apply VALOR identity, VALOR branch conventions, or VALOR pipeline rules here.
+**Scope independence:** This repo is independent of VALOR scope. When Rafa is addressed directly for Audiopheliac tasks, that address is sufficient authorization — no VALOR scope-guard confirmation required. The canonical working tree is C:\Users\gillo\6. The-Audiopheliac. Do not apply VALOR identity, VALOR branch conventions, or VALOR pipeline rules here.
 
 ### Operational routing — who runs what
 
@@ -89,7 +91,7 @@ Cowork drafts; Rafa executes anything that touches the running stack on GDMARCHE
 
 **Default Rafa prompt shape** for Cockpit / Roon / Yamaha ops tasks:
 
-1. State the working directory: `C:\Users\gillo\The-Audiopheliac`.
+1. State the working directory: `C:\Users\gillo\6. The-Audiopheliac`.
 2. State the shell: PowerShell 5.1.
 3. State the scope in numbered steps with concrete file paths and exact expected JSON edits or commands.
 4. Provide an Acceptance block — observable state that proves the task ran.
@@ -104,7 +106,7 @@ When the Audiopheliac Operator paperclip agent exists, the same prompt shape can
 
 ### Project Folder (Canonical)
 ```
-C:\Users\gillo\The-Audiopheliac
+C:\Users\gillo\6. The-Audiopheliac
 ```
 This is the live git repo and working tree. All Cowork file operations target this path.
 
@@ -129,7 +131,7 @@ The D: drive is the second internal drive on GDMARCHE (original factory drive, s
 - **Vinyl files:** `Vinyl/` directory
 - **Signal map files:** `Signal_Map/` directory
 - **Pending PR:** Vinyl wishlist rename (`Codex/stage-vinyl-rename-N4MQf`, commit `801ba0f`) — merge to `main` pending
-- **Worktree note:** `C:\Users\gillo\Veteran Analytics LLC\GitHub Clones\the-audiopheliac` is a git worktree linked to this repo, not an independent clone. It contains a stale AGENTS.md (April 5, 2026) and should not be used as a working directory.
+- **Worktree note:** `C:\Users\gillo\1. Veteran Analytics LLC\GitHub Clones\the-audiopheliac` is a git worktree linked to this repo, not an independent clone. It contains a stale AGENTS.md (April 5, 2026) and should not be used as a working directory.
 
 ### Slack (Veteran Analytics LLC Workspace)
 - **Workspace:** https://veterananalyticsllc.slack.com
@@ -173,7 +175,7 @@ The D: drive is the second internal drive on GDMARCHE (original factory drive, s
 - **Auth email:** gillon.marchetti@gmail.com
 - **Support:** billing@suno.com
 - **Knowledge base:** https://help.suno.com
-- **Local project folder:** `C:\Users\gillo\The-Audiopheliac\Suno\`
+- **Local project folder:** `C:\Users\gillo\6. The-Audiopheliac\Suno\`
 - **Status:** Account active. Profile bio, profile photo, and background image not yet set. My Taste profile empty (0/2000). My Styles toggle enabled.
 
 ### Cloudflare
@@ -343,12 +345,12 @@ Amazon Echo (parallel, independent BT/Wi-Fi)
 ### Sync Architecture
 - **HBS 3:** One-way NAS > Google Drive (non-native files; indexing delay 5-30 min is normal; full-text search does not index markdown or PDF via HBS 3 — use name-based queries)
 - **Robocopy (VALOR):** `D:\VeteransAnalytics_NVMe` > `\\NAS87828E\Veteran Analytics LLC` (Task Scheduler, `/MIR /XO`, log at `C:\Scripts\Logs\VA_NVMe_sync.log`)
-- **Robocopy (Audiopheliac — PENDING):** `C:\Users\gillo\The-Audiopheliac` > `D:\The Audiopheliac\The-Audiopheliac\` — scheduled nightly sync not yet configured. Currently manual. See Open Action Items.
+- **Robocopy (Audiopheliac — PENDING):** `C:\Users\gillo\6. The-Audiopheliac` > `D:\The Audiopheliac\The-Audiopheliac\` — scheduled nightly sync not yet configured. Currently manual. See Open Action Items.
 - **Qsync:** `D:\The Audiopheliac` paired to `\\NAS87828E\The Audiopheliac` — syncs D: drive contents (Ableton Cache, Ableton User Library, and the nested The-Audiopheliac\ project backup) to NAS.
 
 ### Sync Chain (Audiopheliac project files)
 ```
-C:\Users\gillo\The-Audiopheliac   (live repo — edit here)
+C:\Users\gillo\6. The-Audiopheliac   (live repo — edit here)
   > Robocopy (pending schedule)
   > D:\The Audiopheliac\The-Audiopheliac\   (daily D: backup)
   > Qsync (automatic)
@@ -386,7 +388,7 @@ C:\Users\gillo\The-Audiopheliac   (live repo — edit here)
 
 ## PROJECT FOLDER STRUCTURE (AUTHORITATIVE)
 
-**Local root:** `C:\Users\gillo\The-Audiopheliac`
+**Local root:** `C:\Users\gillo\6. The-Audiopheliac`
 
 ```
 automation/         All executable scripts. No outputs, no configs.
@@ -479,7 +481,7 @@ Local FLAC Files (NAS)
   > spotify_missing_tracks.txt
 ```
 
-**Daily refresh (run from GDMARCHE at `C:\Users\gillo\The-Audiopheliac\`):**
+**Daily refresh (run from GDMARCHE at `C:\Users\gillo\6. The-Audiopheliac\`):**
 ```powershell
 python automation\music_indexer.py
 python automation\spotify_pull.py
@@ -564,7 +566,7 @@ python automation\spotify_gap_report.py
 
 ### Local Reference Files
 ```
-C:\Users\gillo\The-Audiopheliac\Suno\
+C:\Users\gillo\6. The-Audiopheliac\Suno\
   Suno_Account_Info.pdf
   Suno_Account_Info.txt
 ```
@@ -580,10 +582,10 @@ C:\Users\gillo\The-Audiopheliac\Suno\
 ### Song Archive Protocol
 Once Gill confirms a song is finalized (lyrics, style, exclusions, and a generated result he's happy with), save the following to disk before closing the session:
 
-**Lyrics file:** `C:\Users\gillo\The-Audiopheliac\Suno\lyrics\[Song-Title].md`
+**Lyrics file:** `C:\Users\gillo\6. The-Audiopheliac\Suno\lyrics\[Song-Title].md`
 Contents: full lyrics with section tags as used in Suno.
 
-**Prompt file:** `C:\Users\gillo\The-Audiopheliac\Suno\prompts\[Song-Title].md`
+**Prompt file:** `C:\Users\gillo\6. The-Audiopheliac\Suno\prompts\[Song-Title].md`
 Contents: the Final Output Template block — Song Title, Style field, Exclude Styles, Weirdness %, Style Influence %, and any iteration notes (v1/v2/v3 lessons if applicable).
 
 **Naming convention:** Use the song title, spaces replaced with hyphens, title case. Example: `Sweet-Tyla-Jean.md`.
@@ -628,7 +630,7 @@ Create the `lyrics/` and `prompts/` subdirectories under `Suno/` if they do not 
 | Suno profile: bio, profile photo, background image | Complete |
 | Suno My Taste profile: draft and save taste descriptor (2,000 char max) | Complete |
 | Ackypaleto (Suno): collaborative project with Kevin | Backlog (not tracked here) |
-| Set up Robocopy job: C:\Users\gillo\The-Audiopheliac > D:\The Audiopheliac\The-Audiopheliac\ (nightly /MIR /XO) | Complete |
+| Set up Robocopy job: C:\Users\gillo\6. The-Audiopheliac > D:\The Audiopheliac\The-Audiopheliac\ (nightly /MIR /XO) | Complete |
 | Clean up D:\The Audiopheliac\The-Audiopheliac\ stale files after Robocopy is running | Monitor — extras retained (QSync layer); review after several nightly runs |
 | Remove remaining VALOR worktree: GitHub Clones\The-Audiopheliac\tender-wright-900476 | Complete |
 | Canva brand kit kAHGkHrcJYU: paste Full Spectrum palette + fonts into Canva UI (asset uploads complete, see `_dev/01_brand/canva_brand_kit_paste_sheet.md`) | Open — manual UI work |
@@ -703,8 +705,9 @@ Apply in order for every technical question:
 ## GAIN STAGING PRINCIPLES
 
 - Digital domain controls (Spotify, Windows volume) stay at maximum to preserve resolution through the DAC.
-- Analog controls (AIR Hub TRS output, MX28 Line levels, HS7 gain) set once for healthy levels.
-- MX28 Master is the sole daily volume control.
+- Analog controls (MX28 Line levels, HS7 gain) set once for healthy levels and left alone.
+- Daily volume controls (post-AIR-Hub-retirement, MOTU M4 era): the source level (Spotify, DAW master, Mani II gain stop) manages healthy signal at origin; the MOTU M4 MAIN knob is the daily volume for speaker playback through MX28; the MOTU M4 headphone knob is the daily volume for headphone monitoring (independent of MAIN).
+- MX28 MASTER: set once at reference (typically unity or just below) and leave. No longer the primary daily control after the AIR Hub was removed from the chain. The AIR Hub's volume knob was unreliable, which is why the MX28 MASTER absorbed that role during the AIR Hub interim. With the MOTU M4 in place, daily volume returns to the source + MOTU side of the chain.
 - Boost-then-distribute: amplify once (Rolls MB15b), then split. Splitting before boosting causes weak signal across all zones.
 - Each gear addition must solve the root problem, not patch a symptom created by a prior purchase.
 
@@ -763,7 +766,7 @@ Exit with /produce or /studio. See Suno Production Environment > Integration Not
 
 ## DATA SOURCE PRIORITY
 
-1. This AGENTS.md and project files on disk at `C:\Users\gillo\The-Audiopheliac\`
+1. This AGENTS.md and project files on disk at `C:\Users\gillo\6. The-Audiopheliac\`
 2. GitHub raw content (`https://raw.githubusercontent.com/MarcArmy2003/The-Audiopheliac/main/...`)
 3. Slack canvas (Session Development Log: https://veterananalyticsllc.slack.com/docs/T0AS3KMJ82X/F0AU7FEMA7M)
 4. Web search for firmware notes, changelogs, driver downloads (prefer manufacturer sources: focusrite.com, ableton.com, yamaha.com, qnap.com, help.suno.com)
@@ -1007,7 +1010,7 @@ These do not duplicate each other. Each has its lane.
 **What we are not yet using (will adopt as the loop matures):**
 
 - The Audiopheliac company itself, must be created first
-- Routines (strong candidates: nightly `music_indexer.py + spotify_pull.py + spotify_local_match.py + spotify_gap_report.py` pipeline; weekly Discogs collection sync when Discogs integration ships; Robocopy `C:\Users\gillo\The-Audiopheliac` > `D:\The Audiopheliac\The-Audiopheliac\` if reframed as routine-managed)
+- Routines (strong candidates: nightly `music_indexer.py + spotify_pull.py + spotify_local_match.py + spotify_gap_report.py` pipeline; weekly Discogs collection sync when Discogs integration ships; Robocopy `C:\Users\gillo\6. The-Audiopheliac` > `D:\The Audiopheliac\The-Audiopheliac\` if reframed as routine-managed)
 - Plugins (out-of-process workers, custom tool exposure)
 - Multiple Human Users (currently solo, Gill is the only board member)
 - Cross-company orchestration (waiting on additional company creation)
@@ -1030,7 +1033,7 @@ These do not duplicate each other. Each has its lane.
 
 **2026-05-11 (per-package software profile pattern, later):** Added the per-package software configuration profile pattern under `docs/software/`. Seeded with `docs/software/README.md` (convention + active-profiles index), `docs/software/_TEMPLATE.md` (reusable skeleton), and `docs/software/Spotify.md` (first profile, covering Premier / Lossless setup, bit-perfect chain through M-Audio AIR Hub, Local Files config against `M:\The Audiopheliac\`, Developer App registration, `Set-AIRHub-And-Launch-Spotify.ps1` wrapper, and full troubleshooting runbook). Added BEHAVIORAL RULE requiring Cowork to proactively flag profile updates whenever working in or changing the configuration of any in-scope software application. Folder tree and structure rules in PROJECT FOLDER STRUCTURE updated to reference `docs/software/` and its conventions.
 
-**2026-05-11 (Audiopheliac paperclip reference, later):** Copied the cross-project Paperclip reference from `C:\Users\gillo\Veteran Analytics LLC\Paperclip_Reference.md` into the Audiopheliac repo at `docs/Audiopheliac_Paperclip_Reference.md` and revised it to be Audiopheliac-applicable: rewrote header to scope-down to The Audiopheliac alone with explicit disambiguation from the VAL parent file; added Section 0 with current state of the paperclip company (id `821ef660-0041-4ef6-a911-adb1ba038e15`, prefix `THE`, brand color `#7a1f2b`, Operator not yet hired, baseline issue THE-1 closed 2026-05-08), use-case ranking, prefix-change decision (recommend `THE` → `AUD` migration playbook), and a reading-map index. Bulk of the document retained verbatim (5,666 lines) as platform-mechanics reference. Flagged gaps: solo-Operator hire flow, concrete data-pipeline routine specs, Audiopheliac issue templates, plugin recommendations, backup/restore cadence, prefix-migration verification recipe — to be pulled from https://docs.paperclip.ing/ in follow-up sessions.
+**2026-05-11 (Audiopheliac paperclip reference, later):** Copied the cross-project Paperclip reference from `C:\Users\gillo\1. Veteran Analytics LLC\Paperclip_Reference.md` into the Audiopheliac repo at `docs/Audiopheliac_Paperclip_Reference.md` and revised it to be Audiopheliac-applicable: rewrote header to scope-down to The Audiopheliac alone with explicit disambiguation from the VAL parent file; added Section 0 with current state of the paperclip company (id `821ef660-0041-4ef6-a911-adb1ba038e15`, prefix `THE`, brand color `#7a1f2b`, Operator not yet hired, baseline issue THE-1 closed 2026-05-08), use-case ranking, prefix-change decision (recommend `THE` → `AUD` migration playbook), and a reading-map index. Bulk of the document retained verbatim (5,666 lines) as platform-mechanics reference. Flagged gaps: solo-Operator hire flow, concrete data-pipeline routine specs, Audiopheliac issue templates, plugin recommendations, backup/restore cadence, prefix-migration verification recipe — to be pulled from https://docs.paperclip.ing/ in follow-up sessions.
 
 **2026-05-11:** Focusrite Scarlett Solo 4th Gen failed (fried; no signal). M-Audio AIR Hub (AIRXHUB) promoted from spare to primary monitoring/playback interface. AIR Hub is output only (24-bit/96kHz DAC, 2× balanced TRS, 1× independent-level headphone, 3× powered USB-A hub for LP120, Spark 40, Privia). Recording capability offline pending input-capable replacement. Solo receipt missing, warranty attempt planned but assumed lost. Inventory bumped to v2026.05; signal map header bumped to v2026.05. Updated: Audio Interface section, Office Studio headphone monitoring, Software/DAW driver, Open Action Items, Gain Staging Principles. **Not updated (flagged for verification):** Office Studio signal chain still shows MX28 as central hub; SVS SoundPath kit still flagged disconnected/stored while inventory has TX/RX active in Family Room → Lanai.
 

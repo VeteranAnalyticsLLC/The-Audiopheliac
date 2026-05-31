@@ -3,13 +3,13 @@
        alt="The Audiopheliac Primary Logo" width="300" />
 </p>
 
-# AV_Master_Inventory_v2026.05.2
+# AV_Master_Inventory_v2026.05.3
 
 **The Audiopheliac – Comprehensive AV, Studio & Network Inventory**  
 Author & Maintainer: *Gillon "Gill" Marchetti (MarcArmy2003)*  
-Version: v2026.05.2  
-Date: May 11, 2026  
-Last change: Reconciled Schiit pair — Mani II confirmed as Office Studio phono preamp for LP120 (PHONO out → Mani II → MX28 Input B); Schiit SYS relocated to Lanai as A/B switch between 1Mii RX #2 and Singing Machine, feeding Bose 3·2·1 AUX IN. Prior version v2026.05.1 added MX28, activated 1Mii system, retired SVS SoundPath to reserve.
+Version: v2026.05.3  
+Date: May 30, 2026  
+Last change: Session 4 + 5 audio-infrastructure consolidation. (1) Added MOTU M4 as the active primary audio interface of record (installed 2026-05-28; replaced the failed Focusrite Scarlett Solo; restores ADC / recording capability). (2) Demoted M-Audio AIR Hub to cold spare (30-day evaluation through 2026-06-27). (3) Rebuilt the Studio Monitoring Chain and Interface Status block around the M4. (4) Added a Front Panel Reference subsection for the MOTU M4 and Rolls MX28, with operational mapping aligned to the post-AIR-Hub gain-staging doctrine (M4 MAIN + source are the daily controls; MX28 MASTER sits at reference). (5) Confirmed AT-VM95SH Shibata cartridge installed on the AT-LP120XUSB (Session 4). Prior v2026.05.2 reconciled the Schiit pair (Mani II = Office Studio phono preamp; SYS relocated to Lanai).
 
 ---
 
@@ -99,9 +99,10 @@ Yamaha R-N800A (Line Out / PRE OUT)
 | Device               | Make / Model                                                                                                                | Serial Number          | Purchase Date | Est. Resale (USD) | Notes                                                        |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------- | ----------------- | ------------------------------------------------------------ |
 | Turntable            | Audio-Technica AT-LP120XUSB                                                                                                 | 243402497              | Jan 2025      | $200              | Direct drive; Audio-Technica AT-VM95SH Shibata cartridge (installed Feb 9, 2026; replaced stock AT95E) |
-| Audio Interface      | [Focusrite Scarlett Solo 4th Gen](https://github.com/MarcArmy2003/The-Audiopheliac/blob/main/docs/Processing_Hardware.md)   | S1XJ7HX57AF107         | Feb 2025      | $0                | **FAILED (2026-05-11)** — Unit fried; no signal. Warranty likely unrecoverable (receipt missing). Replacement TBD. |
+| Audio Interface      | [Focusrite Scarlett Solo 4th Gen](https://github.com/MarcArmy2003/The-Audiopheliac/blob/main/docs/Processing_Hardware.md)   | S1XJ7HX57AF107         | Feb 2025      | $0                | **FAILED (2026-05-11)** — Unit fried; no signal. Warranty likely unrecoverable (receipt missing). Replaced by MOTU M4 (2026-05-28); now in Stored / Inactive. |
+| Audio Interface      | MOTU M4                                                                                                                     | m4ma0243as             | May 2026      | TBD               | **ACTIVE — primary audio interface of record** (installed 2026-05-28; replaced the failed Scarlett; restores ADC / recording capability). USB-C bus-powered, 24-bit/192kHz. 2× combo XLR/TRS mic/line inputs + 48V phantom; line inputs 3-4 reserved for the Mani II vinyl-rip path; MONITOR outs (1/4" TRS) → Rolls MX28 LEVEL 3 BAL. MOTU M Series ASIO 4.5.0.551, firmware 2.07. See docs/software/Motu-M4.md. |
 | Wireless RX          | 1Mii RT5066R2 Wireless Audio Receiver #1                                                                                    | TBD                    | Jan 16, 2026  | $23               | **ACTIVE** — Receives Family Room wireless feed; routed to Rolls MX28 Mini-Mix VI as a line input. |
-| Audio Hub / Monitor I/F | M-Audio AIR Hub (AIRXHUB)                                                                                                | TBD                    | Apr 2024      | $80               | **ACTIVE — Primary monitoring/playback interface** (replaces Solo, monitoring only). USB-C device to USB-A host (WD19DCS). 24-bit/96kHz DAC; 2× balanced 1/4" TRS monitor outs; 1× 1/4" headphone w/ independent level; 3× USB-A powered hub (Privia, Spark 40, LP120). Output-only, no ADC. TRS L/R feeds Rolls MX28 as the DAW source input. |
+| Audio Hub / Monitor I/F | M-Audio AIR Hub (AIRXHUB)                                                                                                | TBD                    | Apr 2024      | $80               | **COLD SPARE (30-day evaluation through 2026-06-27)** — replaced as primary by the MOTU M4 on 2026-05-28. Output-only, no ADC. USB-C device to USB-A host (WD19DCS); 24-bit/96kHz DAC; 2× balanced 1/4" TRS monitor outs; 1× 1/4" headphone w/ independent level; 3× USB-A powered hub (Privia, Spark 40, LP120). Retained as known-good fallback / USB-A passthrough hub; retire-or-keep decision at 2026-06-27. |
 | Active Mixer         | Rolls MX28 Mini-Mix VI                                                                                                      | TBD                    | Pre-2026      | $50               | **ACTIVE — Central studio mixer.** Inputs: (1) AIR Hub TRS L/R (Dell Precision DAW/playback), (2) AT-LP120XUSB line out, (3) 1Mii RX #1 (Family Room wireless). Master → JBL LSR310S TRS in → Yamaha HS7 L/R. Used for mixing during recording sessions and grabbing loops. Center-negative PSU — use included power supply only. |
 | Phono Preamp         | Schiit Mani II                                                                                                              | CI182351284            | Jul 2025      | $213              | **ACTIVE** — Phono preamp for AT-LP120XUSB (LP120 set to PHONO out). Mani II RCA out → Rolls MX28 Input B. |
 | Subwoofer            | JBL LSR310S                                                                                                                 | DYA007-34294           | Oct 2025      | $260              | Operational, balanced TRS in/out verified                    |
@@ -121,9 +122,9 @@ Yamaha R-N800A (Line Out / PRE OUT)
 ```
 Source 1: Dell Precision 7540 (DAW / playback / streaming)
      │
-     └──► M-Audio AIR Hub (USB-C → USB-A on WD19DCS)
-              ├──► Balanced 1/4" TRS L/R ──► Rolls MX28 Mini-Mix VI (line input)
-              └──► 1/4" Headphone Out (independent level) ──► ATH-M50x (direct monitor)
+     └──► MOTU M4 (USB-C bus-powered; 24-bit/192kHz; MOTU M Series ASIO)
+              ├──► MONITOR Outs 1-2 (1/4" TRS balanced) ──► Rolls MX28 Mini-Mix VI (LEVEL 3 BAL)
+              └──► Front-panel Headphone Out (independent level) ──► ATH-M50x (direct monitor)
 
 Source 2: Audio-Technica AT-LP120XUSB (phono out)
      │
@@ -146,15 +147,43 @@ AIR Hub Powered USB-A Hub (USB peripherals only, no audio routing):
   • Casio Privia PX-870WE (USB-A)
 ```
 
-**Interface Status (2026-05-11):**
-- Focusrite Scarlett Solo 4th Gen — **FAILED**, removed from active chain. Replacement TBD.
-- M-Audio AIR Hub — **PRIMARY** monitoring/playback path. Output only (no ADC).
-- Rolls MX28 Mini-Mix VI — **CENTRAL MIXER**, sums DAW + LP120 + 1Mii RX to monitor chain. Used for recording-session mixing and loop capture.
-- Recording capability is offline until a replacement interface with mic/instrument inputs is sourced.
+**Interface Status (2026-05-28):**
+- MOTU M4 — **PRIMARY** audio interface of record (installed 2026-05-28). USB-C, 24-bit/192kHz, MOTU M Series ASIO. 2× combo XLR/TRS mic/line in + 48V phantom; line inputs 3-4 reserved for the Mani II vinyl-rip path. MONITOR outs → MX28 LEVEL 3 BAL.
+- M-Audio AIR Hub — **COLD SPARE** (30-day evaluation through 2026-06-27). Output only (no ADC); retained as known-good fallback / USB-A passthrough hub.
+- Focusrite Scarlett Solo 4th Gen — **FAILED** (2026-05-11), moved to Stored / Inactive. Warranty attempt pending.
+- Rolls MX28 Mini-Mix VI — **CENTRAL MIXER**, sums M4 (DAW/playback) + LP120 (via Mani II) + 1Mii RX to the monitor chain. Used for recording-session mixing and loop capture.
+- Recording capability **RESTORED** with the M4 (mic/instrument inputs + ADC), replacing the output-only AIR Hub interim.
 
 **Schiit pair status (resolved 2026-05-11):**
 - **Schiit Mani II** stays in Office Studio as the phono preamp for AT-LP120XUSB. LP120 set to PHONO out → Mani II → MX28 Input B.
 - **Schiit SYS** relocated to Lanai. Now serves as a passive A/B switch between the 1Mii RX #2 (Family Room wireless) and the Singing Machine (karaoke), feeding the Bose 3·2·1 AUX IN.
+
+### 🎚 Front Panel Reference — MOTU M4 and Rolls MX28 (stacked: MX28 on top of M4)
+
+**MOTU M4 — Front Panel (left to right):**
+- IN 1L: combo XLR/TRS jack, GAIN knob, 48V phantom pad, MON (monitor) button — Mic/Line/Guitar
+- IN 2R: combo XLR/TRS jack, GAIN knob, 48V phantom pad, MON button — Mic/Line/Guitar
+- INPUT <-> PLAYBACK monitor mix knob, with 3-4 channel button below
+- LCD metering display: IN (channels 1-2, 3-4) and OUT (channels 1-2, 3-4), color-gradient level bars
+- MAIN (monitor output) volume knob — large, right of center
+- Headphone output: 1/4" jack with level control (far right)
+
+**Rolls MX28 Stereo Mini-Mix VI — Front Panel (left to right):**
+- LEVEL 1 BAL knob
+- LEVEL 2 BAL knob
+- LEVEL 3 BAL knob
+- MASTER LEVEL knob
+- HEADPHONE LEVEL knob
+- Green power LED (between Master and Headphone knobs)
+- Headphone outputs: 1/4" jack + 1/8" jack (below right knobs)
+- Rear (per top-panel label): Inputs 1/2/3 each L/R RCA, OUTPUT L/R RCA, DC IN (VDC)
+
+**Operational mapping (per current gain-staging doctrine — post-AIR-Hub, MOTU M4 era):**
+- Source level (Spotify, DAW master, Mani II gain stop) = manages healthy signal at origin
+- MOTU M4 MAIN knob = daily volume for speaker playback through the MX28
+- MOTU M4 headphone knob = daily volume for headphone monitoring (independent of MAIN)
+- MX28 MASTER LEVEL = set once at reference and left alone (it was the daily control during the AIR Hub interim, when the AIR Hub's own volume knob was unreliable; with the M4 in place that role returns to the M4 + source side of the chain)
+- MX28 headphone out = reserved for blended multi-source monitoring
 
 ---
 
@@ -369,6 +398,7 @@ Amazon Echo (4th Gen) → Bluetooth / Wi-Fi Playback
 
 | Version      | Date           | Summary                                                                                                                                                                                                          |
 | ------------ | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **v2026.05.3** | May 30, 2026 | **AUDIO INFRASTRUCTURE CONSOLIDATION (Sessions 4 + 5):** Added MOTU M4 as the active primary audio interface of record (installed 2026-05-28; replaced the failed Scarlett Solo; restores ADC / recording). Demoted M-Audio AIR Hub to cold spare (evaluation through 2026-06-27). Rebuilt the Studio Monitoring Chain (Source 1 is now the M4) and the Interface Status block around the M4. Added a Front Panel Reference subsection for the MOTU M4 + Rolls MX28, with operational mapping aligned to the post-AIR-Hub gain-staging doctrine (M4 MAIN + source are the daily controls; MX28 MASTER sits at reference). Confirmed the AT-VM95SH Shibata cartridge installed on the AT-LP120XUSB (Session 4 doc pass). Resolved the Open Item "Replacement audio interface (with ADC)." |
 | **v2026.05.2** | May 11, 2026 | **SCHIIT RECONCILIATION (per user verification):** Schiit Mani II confirmed active in Office Studio as the phono preamp for AT-LP120XUSB; LP120 set to PHONO out, Mani II RCA out → Rolls MX28 Input B. Schiit SYS relocated to Lanai as a passive A/B switch between 1Mii RX #2 (Family Room wireless) and Singing Machine (karaoke), output feeding Bose 3·2·1 AUX IN. Inventory Office Studio table: SYS row removed (now on Lanai). Inventory Lanai table: SYS row added. Studio Monitoring Chain: LP120 path corrected to LP120 → Mani II → MX28. Lanai signal chain: SYS switching block inserted before Bose AUX IN. Open Items: removed Schiit Mani II + SYS verification entry (resolved). |
 | v2026.05.1 | May 11, 2026 | **STALENESS RECONCILIATION (per user verification):** (1) Added Rolls MX28 Mini-Mix VI to Home Office / Studio table — central studio mixer with three line inputs (AIR Hub TRS L/R, AT-LP120XUSB line out, 1Mii RX #1). (2) Rebuilt Studio Monitoring Chain to route AIR Hub + LP120 + 1Mii RX → MX28 → JBL LSR310S → HS7. (3) Promoted 1Mii RT5066R2 TX (Family Room) and both RXes to ACTIVE status. (4) Moved 1Mii RT5066R2 RX #2 from Garage table to Lanai table — actually lives on Lanai. (5) Retired SVS SoundPath TX and RX from active chains to Stored / Inactive — removed from signal chain months ago, replaced by 1Mii system. (6) Updated Family Room signal chain to show Yamaha Line Out → Rolls MB15b → 1Mii TX → RX in Office Studio + RX on Lanai. (7) Updated Lanai signal chain to replace SVS RX block with 1Mii RX block. (8) Removed obsolete "Planned Integration" footers for 1Mii (now actually integrated). **Open verification:** Schiit Mani II / Schiit SYS role in current Studio chain is unclear with LP120 feeding MX28 directly. |
 | v2026.05     | May 11, 2026   | **CHANGES:** Focusrite Scarlett Solo 4th Gen marked **FAILED** (fried; no signal). Removed from active Studio chain; moved to Stored/Inactive. Receipt missing — warranty attempt planned but assumed lost. M-Audio AIR Hub (AIRXHUB) promoted from spare to **PRIMARY** monitoring/playback interface. Documented full AIR Hub spec: USB-C device to USB-A host (WD19DCS), 24-bit/96kHz DAC, 2× balanced 1/4" TRS monitor outs, 1× 1/4" headphone (independent level), 3× powered USB-A hub ports (LP120, Spark 40, Privia). AIR Hub is output-only (no ADC); recording capability offline until input-capable replacement is sourced. Updated Studio Monitoring Chain and Network Topology accordingly. |
@@ -390,9 +420,10 @@ Amazon Echo (4th Gen) → Bluetooth / Wi-Fi Playback
 | 1Mii RT5066R2 RX #2 Serial (Lanai) | TBD | Capture unit label when accessible |
 | Rolls MX28 Mini-Mix VI Serial | TBD | Capture rear/bottom label when accessible |
 | APC Back-UPS 1000 Serial | TBD | Capture rear label when accessible |
-| M-Audio AIR Hub Serial | TBD | Capture bottom label when accessible (active primary interface) |
+| M-Audio AIR Hub Serial | TBD | Capture bottom label when accessible (now cold spare; MOTU M4 is the primary interface) |
+| MOTU M4 purchase price / est. resale | TBD | Capture from receipt at `P:\Finances\Purchases_and_Receipts\Audio Equipment\MOTU_M4_GuitarCenter.pdf` |
 | Focusrite Scarlett Solo warranty claim | Pending | Contact Focusrite Support without receipt; document outcome |
-| Replacement audio interface (with ADC) | Pending sourcing | Research input-capable interfaces to restore recording capability |
+| Replacement audio interface (with ADC) | ✅ Resolved (2026-05-28) | MOTU M4 installed as the primary interface of record; ADC / recording capability restored. |
 
 ---
 

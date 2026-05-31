@@ -798,8 +798,9 @@ Apply in order for every technical question:
 ## GAIN STAGING PRINCIPLES
 
 - Digital domain controls (Spotify, Windows volume) stay at maximum to preserve resolution through the DAC.
-- Analog controls (MOTU M4 MONITOR knob, MX28 Line levels, HS7 gain) set once for healthy levels.
-- MX28 Master is the sole daily volume control.
+- Analog controls (MX28 Line levels, HS7 gain) set once for healthy levels and left alone.
+- Daily volume controls (post-AIR-Hub-retirement, MOTU M4 era): the source level (Spotify, DAW master, Mani II gain stop) manages healthy signal at origin; the MOTU M4 MAIN knob is the daily volume for speaker playback through MX28; the MOTU M4 headphone knob is the daily volume for headphone monitoring (independent of MAIN).
+- MX28 MASTER: set once at reference (typically unity or just below) and leave. No longer the primary daily control after the AIR Hub was removed from the chain. The AIR Hub's volume knob was unreliable, which is why the MX28 MASTER absorbed that role during the AIR Hub interim. With the MOTU M4 in place, daily volume returns to the source + MOTU side of the chain.
 - Boost-then-distribute: amplify once (Rolls MB15b), then split. Splitting before boosting causes weak signal across all zones.
 - Each gear addition must solve the root problem, not patch a symptom created by a prior purchase.
 

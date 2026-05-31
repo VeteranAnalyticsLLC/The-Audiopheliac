@@ -38,11 +38,20 @@ GDMARCHE
     |
     v
 Audacity (primary)
-  - Host: MOTU M Series ASIO
-  - Recording Device: MOTU M Series
+  - Host: Windows WASAPI
+    (Stock Audacity does NOT ship with ASIO support due to Steinberg
+     SDK licensing. WASAPI is the correct Audacity host on Windows --
+     supports 24-bit recording, exclusive-mode low-latency path, no
+     Windows mixer in the signal chain. Reserve MOTU M Series ASIO
+     for Ableton Live, which supports ASIO natively.)
+  - Recording Device: In 3-4 (MOTU M Series)
+    (NOT "Loopback (MOTU M Series)" -- loopback captures system
+     playback, not physical inputs. The "In 3-4" entry is the
+     physical TRS line inputs where the Mani II is wired.)
+  - Playback Device: Out 1-2 (MOTU M Series)
   - Channels: 2 (Stereo) Recording Channels
   - Project Rate: 48000 Hz (daily) or 96000 Hz (archive-grade per album)
-  - Project Bit Depth: 24-bit
+  - Project Bit Depth: working in 32-bit float, export to 24-bit FLAC
     |
     v
 Raw WAV (preserved indefinitely)
@@ -145,11 +154,14 @@ D:\The Audiopheliac\Creative Studio\07_Exports\Vinyl Rips\<Artist>\<Album>\
 | Setting | Daily | Archive-grade |
 |---|---|---|
 | Project Rate | 48000 Hz | 96000 Hz |
-| Bit Depth | 24-bit | 24-bit |
+| Default Sample Format (working) | 32-bit float | 32-bit float |
+| Export Bit Depth (FLAC archive) | 24-bit | 24-bit |
 | Recording Channels | 2 (Stereo) | 2 (Stereo) |
-| Host | MOTU M Series ASIO | MOTU M Series ASIO |
-| Recording Device | MOTU M Series | MOTU M Series |
-| Playback Device | MOTU M Series | MOTU M Series |
+| Host | Windows WASAPI | Windows WASAPI |
+| Recording Device | In 3-4 (MOTU M Series) | In 3-4 (MOTU M Series) |
+| Playback Device | Out 1-2 (MOTU M Series) | Out 1-2 (MOTU M Series) |
+
+**Important: Audacity does NOT support ASIO.** Stock Audacity binaries (every official release) lack ASIO support due to Steinberg SDK licensing restrictions on open-source projects. Windows WASAPI is the correct Audacity host on Windows -- supports 24-bit recording, exclusive-mode low-latency path, no Windows mixer in the signal chain. ASIO4ALL (a third-party WDM-to-ASIO wrapper) does NOT help Audacity, because Audacity cannot enumerate ASIO devices at all -- the Host dropdown does not show ASIO regardless of which ASIO drivers are installed on the system. Use MOTU M Series ASIO in Ableton Live, where ASIO support is native and the manufacturer's driver gives the best latency.
 
 **Canonical workflow references (official Audacity Manual, durable URLs):**
 - Sample workflow for LP digitization: https://manual.audacityteam.org/man/sample_workflow_for_lp_digitization.html
@@ -161,7 +173,11 @@ D:\The Audiopheliac\Creative Studio\07_Exports\Vinyl Rips\<Artist>\<Album>\
 
 ---
 
-## Archive Destination
+## Archive Destinations — Staging vs Final Library
+
+The vinyl rip workflow has TWO destinations, not one. The staging path holds the working files (project + RAW WAVs). The music library is where finished FLACs live for listening.
+
+### Staging (working files only — .aup3 and RAW WAVs)
 
 **Root:** `D:\The Audiopheliac\Creative Studio\07_Exports\Vinyl Rips\`
 
@@ -171,26 +187,66 @@ D:\The Audiopheliac\Creative Studio\07_Exports\Vinyl Rips\<Artist>\<Album>\
 07_Exports\Vinyl Rips\
   <Artist>\
     <Album>\
-      01 Track Title.flac
-      02 Track Title.flac
-      ...
       _working\
-        Artist - Album - Side A - RAW.wav
-        Artist - Album - Side B - RAW.wav
-        Artist - Album - Side A - EDIT.wav
-        Artist - Album - Side B - EDIT.wav
+        <Artist> - <Album>.aup3
+        Side A - RAW.wav
+        Side B - RAW.wav
+        Side A - EDIT.wav   (optional, if EDIT stage exported)
+        Side B - EDIT.wav   (optional)
 ```
 
 D: syncs to NAS via QSync. Replicated path: `\\NAS87828E\The Audiopheliac\The-Audiopheliac\Creative Studio\07_Exports\Vinyl Rips\` (per CLAUDE.md INFRASTRUCTURE AND SYNC).
 
-**Naming:**
+**Staging naming:**
 - Artist folder: `<Artist Name>` as published (no leading "The").
-- Album folder: `<Album Title>` (no year prefix, no edition suffix unless disambiguating).
-- FLAC tracks: `NN Track Title.flac`.
-- Working WAVs: `<Artist> - <Album> - Side <A|B> - <RAW|EDIT>.wav`.
+- Album folder: `<Album Title>` (no year, no rip date — kept simple at the staging level).
+- Working WAVs: `Side <A|B> - <RAW|EDIT>.wav` (folder hierarchy carries artist/album context).
+- Audacity project: `<Artist> - <Album>.aup3`.
+
+### Final FLAC library (the listening destination)
+
+**Root:** `M:\` (the music library — same root Plex monitors and the Bronco's USB workflows pull from).
+
+**Hierarchy:**
+
+```
+M:\
+  <Artist>\
+    <Album Title> (<Release Year>) - Vinyl Rip (<DDMMMYY rip date>)\
+      01-Track Title.flac
+      02-Track Title.flac
+      ...
+```
+
+**Example (locked-in canonical):**
+
+```
+M:\David Bowie\Let's Dance (1983) - Vinyl Rip (30MAY26)\
+  01-Modern Love.flac
+  02-China Girl.flac
+  03-Let's Dance.flac
+  04-Without You.flac
+  05-Ricochet.flac
+  06-Criminal World.flac
+  07-Cat People (Putting Out Fire).flac
+  08-Shake It.flac
+```
+
+**Final library naming:**
+- Artist folder: `<Artist Name>` as published (no leading "The"). Same convention as staging.
+- Album folder: `<Album Title> (<Release Year>) - Vinyl Rip (<DDMMMYY>)`.
+  - Release year is the year of the album's original release (1983 for Let's Dance), not the pressing year if a reissue.
+  - "Vinyl Rip" tag distinguishes vinyl-source FLACs from CD-source backup FLACs of the same album. This matters because Gill may eventually rip vinyl copies of albums he already has digitized from CDs (e.g., a Tom Petty Wildflowers special-edition vinyl rip alongside the CD backup).
+  - DDMMMYY rip date provides provenance and disambiguates if the same album is ever re-ripped (e.g., with better gear in a future session). Trade-off: DDMMMYY is human-readable but does not sort chronologically when listed alphabetically; if chronological sort matters, use ISO 8601 (YYYY-MM-DD) instead.
+- FLAC tracks: `NN-Track Title.flac` (two-digit track number, dash separator, song title, .flac extension). The dash separator matches Audacity's default "Numbering before Label/Track Name" export pattern.
+
+**Workflow order:**
+1. RAW WAVs and .aup3 project live in the staging `_working\` folder for the life of the rip work and remain there as historical provenance.
+2. Final FLACs export INTO the library's album folder directly — NOT into the staging tree.
+3. The staging tree is the source-of-truth for "this was rip-engineered in Audacity on these dates with these settings." The library tree is the listening surface.
 
 **Metadata fields on FLAC export:**
-- Artist, Album, Title, Track number / total tracks, Year (pressing year), Genre, Album artist (compilations), Comment.
+- Artist, Album, Title, Track number / total tracks, Year (release year), Genre, Album artist (compilations), Comment.
 - Comment template: `Vinyl rip: AT-LP120XUSB / AT-VM95SH / Mani II / MOTU M4 / Audacity / YYYY-MM-DD`.
 
 For tagging tool options beyond Audacity's native metadata editor, see `docs/vinyl_archive_metadata_pipeline.md`.
