@@ -273,3 +273,54 @@ Continuation session resumed from the `docs/session_handoffs/audio_2026-05-29.md
 - Audacity ↔ Claude.ai connector check (separate from MuseHub).
 - v2026.01 inventory duplicate reconciliation/retirement (root `av_master_inventory_2026.md` + `docs/Lifestyle_650_Console_Summary.md`) — still show the Scarlett as active; handle in a dedicated reconciliation pass.
 - Pre-Session-2 working-tree clutter (`console/` prototypes, `assets/brand/` extras, Focusrite/Roon PDFs, `temp_covers/`) — triage when convenient; left untracked this session.
+
+## Session 6 — 2026-05-30
+
+**Work done:**
+- Mentor Lesson 2 (vinyl capture in Ableton Live) executed end-to-end: Chris Stapleton, *From A Room: Volume 1* Side A + Side B captured as raw stereo WAVs into `D:\The Audiopheliac\Creative Studio\07_Exports\Vinyl Rips\Chris Stapleton\From A Room - Vol 1\_working\Chris Stapleton - From A Room - Vol 1 Project\Samples\Recorded\`. Capture chain: AT-LP120XUSB (PHONO, AT-VM95SH Shibata cart) > Schiit Mani II (MM mode) > MOTU M4 LINE IN 3/4 (ASIO 4.5.0.551) > Ableton Live 12.4.1 Suite, recorded at 48 kHz / 24-bit, peaks targeted -12 to -6 dBFS per the Bowie Session 5 reference. M4 INPUT/PLAYBACK MIX rotated toward INPUT for zero-latency hardware monitoring during capture.
+- KISS skill (Keep It Simple, Stupid) authored as a global capability skill: behavioral overlay enforcing plain-language, one-step-at-a-time, verified-source instructional delivery. Staged at `skill-updates/2026-05-30/kiss/SKILL.md`, packaged as `kiss.skill` zip, installed via Cowork upload button.
+- Lena's Ableton Live 12 Settings Reference doc created at `docs/Ableton_Live_12_Settings_Setup/` (markdown reference + YAML structured data + 9 PNG screenshots), then restructured mid-session to reflect Live 12.4.1's split of the legacy "Link, Tempo & MIDI" tab into two separate tabs (Link + Tempo & MIDI), with the new Link Audio subsection added; Licenses status updated for the "+ 1 add-on authorized" (Beat Tools).
+- `docs/software/AbletonLive12.md` software profile created (comprehensive, including §10 Available Packs catalog covering all 39 packs in Gill's Live 12 Suite license, with High/Medium/Low priority recommendations aligned to the Listening Profile).
+- `docs/software/Audacity.md` software profile created.
+- `docs/software/Motu-M4.md` updated with a Bundled Software (Registration Pending) subsection.
+- `docs/software/README.md` index updated: added AbletonLive12, Audacity, MOTU M4 to active profiles; added Deprecated section for Roon.
+- Silent Scarlett → MOTU M4 disposition pass applied across active-state docs: `docs/Ableton_Live_12_Specs.md` (v2026.05.30, §§3-4-7 rewritten for MOTU M4), `AGENTS.md` (Audio Interface + Software/DAW driver line), site pages (`studio.astro`, `music.astro`, `gear.astro`), `docs/Processing_Hardware.md` + root copy, `docs/instrument_specs_v_2025_10_08.md` + root copy, `albums/between-stations/album-brief.md`, `docs/Cockpit_System_Design_v2026_05.md` §T6, `docs/Bose_321_Manual.md`, `docs/mockups/cockpit-v0.html`. Historical/forensic mentions left intact (CLAUDE.md HISTORY, daily_log entries, project history outputs, `journal.astro` Scarlett-death blog post).
+- Roon footprint removal marked Complete in CLAUDE.md OPEN ACTION ITEMS row with Rafa's full disposition: NAS Docker teardown (container + image 249 MB + RoonServer dir 995 MB + undocumented roon-backups 337 MB), GDMARCHE caches removed (Roon 8.5 MB + RoonServer 263 MB + console\roon_token.json), ~1.85 GB reclaimed, commit `e741bf9` pushed by Rafa, observation #15 logged.
+- Ableton Live 12 mid-session auto-update from 12.3.4 → 12.4.1, recorded in `docs/Ableton_Live_12_Specs.md` v2026.05.30 frontmatter + AbletonLive12.md §2.
+- Temporary Folder relocated from OneDrive (`C:\Users\gillo\OneDrive\Documents\Ableton\Live Recordings`) to `C:\Users\gillo\6. The-Audiopheliac\Ableton Temp` per Gill's correct insight: C: is Samsung 990 PRO NVMe (faster than D: HDD), inside the project tree means Cowork-visible for debugging, and the existing `.gitignore` already blocks `Ableton Temp/` at any depth. AbletonLive12.md §4 and Lena's reference §6 both updated to reflect new path with rationale.
+- New `docs/software/` profiles flagged for image swap at next session: Lena's reference image `images/04_link_tempo_midi.png` is pre-12.4.1 capture; needs re-export as `04_link.png` + `05_tempo_midi.png` to match split. Settings walkthrough screenshots from Gill's session capture across all 10 tabs would also benefit from refresh.
+
+**Commits:** None pushed this session. Working tree contains multiple uncommitted doc edits + the staged skill + the new project subfolder `_working/` under the Vinyl Rips tree containing the Stapleton Live Set (.als) and the Project folder with Samples\Recorded\ holding ~1.3 GB Side A WAV + 1 GB Side B WAV. Rafa-lane commit + push needed at next session start. Suggested commit message: `docs+feat: Mentor Lesson 2 vinyl capture (Stapleton From A Room Vol 1); AbletonLive12.md + Audacity.md profiles; settings reference + YAML for 12.4.1; KISS skill v1; Scarlett→MOTU M4 disposition pass; Roon footprint complete`.
+
+**Decisions:**
+- Workflow B (Ableton end-to-end for vinyl rip post-processing) chosen over Workflow A (Audacity post) for the Stapleton rip, on pedagogical grounds — Gill is learning Ableton, so staying in one tool is more cohesive than bouncing to the already-known Audacity workflow.
+- Temporary Folder = project-local on C: NVMe (not D:) per Gill's correct override of my initial D: recommendation. Reasoning: C: is faster (NVMe vs HDD), project-local means Cowork-visible, existing gitignore already covers it.
+- "Mastering" terminology rejected for the vinyl rip post step; "library deliverables" / "vinyl rip FLACs" / "archive FLACs" used instead per Gill's accurate point that vinyl ripping is capture + archival, not authorship of the sound.
+- M: drive (NAS Music share) confirmed exempt from "audio production elements move to D:" rule because M: IS the music library itself. User Library stays at `M:\The Audiopheliac\User Library`.
+- Settings library reorganization (Packs folder location, Splice folder, D: structure deduplication) deferred to a focused Rafa-lane session via a draftable prompt at next session.
+- Audio playback silence at end of session diagnosed but not fixed: track's Audio To changed to `Ext. Out, 1/2` (bypassing Main bus) AND track fader at -∞. 30-second fix at next session.
+
+**Corrections (live in-session):**
+- Multiple obs #16 violations (asking Gill to read back what was visible in his own attached screenshots) recurred across the session despite obs #16 being logged early. Pattern needs structural pre-flight enforcement, not soft principle.
+- Multiple obs #17 violations (offering keyboard shortcuts as "alternatives" to menu paths in /the-mentor mode) recurred at least once before consistent compliance. Pattern needs explicit menu-only response_format clause.
+- Asserted M4 LP120XUSB has auto-return — wrong; AT-LP120XUSB does not include auto-return per Audio-Technica spec. Gill corrected. Reflects obs #11 / /verification-first-rule pattern for hardware specs.
+- Asserted the M4's 3-4 button doesn't affect vinyl monitoring — wrong; it specifically controls whether inputs 3-4 are routed to the front-panel monitor mix, which IS the vinyl signal hardware-monitoring path per `docs/software/Motu-M4.md` §4. Gill corrected. Same verification pattern.
+- Mentor session structure overall: too dense, too slow, too robotic, too chunky per Gill's explicit session-close feedback. Logged as observation #19 with detailed suggested-improvement plan for skills/the-mentor/SKILL.md rework.
+
+**Observations logged:** #16 (examine attachments closely, do not delegate verification to the user), #17 (no keyboard shortcuts in /the-mentor mode — menu/UI controls only), #18 (append concise bulleted action summary at end of every instruction set), #19 (Mentor session structure too dense/slow/robotic — major rework needed). All four are KISS-skill / the-mentor-skill relevant cross-cutting principles for future sessions.
+
+**Next actions:**
+- Audio silence fix at next session start: track Audio To → Main, fader → ~0 dB (30 seconds).
+- Resume Mentor Lesson 2 Workflow B post-processing: cleanup pass (trim handles, fades), Utility +6 dB gain, Limiter ceiling -0.3 dB, listen-through, track-split with locators, FLAC export per track to `M:\Chris Stapleton\From A Room - Vol 1 (2017) - Vinyl Rip (31MAY26)\` (9 tracks).
+- Mentor skill rework per obs #19: skills/the-mentor/SKILL.md significant restructure for fluency calibration, aggregated steps, conversational variability, structural attachment-examination enforcement, brisker settings walkthroughs.
+- Library reorganization Rafa prompt drafting: search D: for actual Ableton Packs install location, repoint Settings > Library > Installation Folder for Packs, move Splice folder off M: to D:, resolve duplicate D: root vs D:\The Audiopheliac\ pattern (canonical decision: D1 root vs D2 project-folder), cleanup D:\The Audiopheliac\The-Audiopheliac\ (.alp + .bin + .exe + .crdownload artifacts). User Library stays at M:.
+- 12.4.1 version pin into CLAUDE.md SOFTWARE AND DAW section (currently just says "Ableton Live 12 Suite").
+- Image swap pass for `docs/Ableton_Live_12_Settings_Setup/images/`: re-export 10 tab PNGs at current 12.4.1 layout.
+- `media/audio_system_playbook.md` rewrite (still flagged version-aged in CLAUDE.md §CANONICAL PRODUCT REFERENCES).
+- GDMARCHE IP reconciliation: CLAUDE.md HARDWARE says 192.168.1.119 reserved; `docs/GDMARCHE_HomeOffice_Connections_v2026_05.md` says 192.168.1.75 pending. Need ground-truth probe + reconcile.
+
+**Open carry-forwards (not blocking the close):**
+- Rafa-lane git stage + commit + push of all session edits (extensive — listed under Work done).
+- Slack `#theaudiopheliac` close post.
+- Settings library reorganization Rafa prompt drafting (per Next actions, queued for next session).
+- Mentor skill rework (large architectural task; deferred per Gill request).

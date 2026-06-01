@@ -99,6 +99,8 @@ _dev/
 _morning-preview/
 # External vendored libraries (kept on NAS, not in repo)
 docs/guitar-literacy/guitar/external/
+# Large vendored manuals (kept local, not in repo — Ableton Live manual ~90MB)
+docs/documentation/
 # Cross-project contamination guard (added after quarantine 2026-04-21)
 VeteranIntel Development/
 

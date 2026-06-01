@@ -28,11 +28,19 @@ Triggers:
 
 | Package | Path | Status | Last reviewed |
 |---|---|---|---|
+| Ableton Live 12 Suite | [AbletonLive12.md](AbletonLive12.md) | Active | 2026-05-31 |
+| Audacity | [Audacity.md](Audacity.md) | Active | 2026-05-31 |
+| MOTU M4 (interface + M Series driver) | [Motu-M4.md](Motu-M4.md) | Active | 2026-05-28 |
 | Spotify (Windows desktop) | [Spotify.md](Spotify.md) | Active | 2026-05-11 |
-| Roon (Server + Bridge + Remote) | [Roon.md](Roon.md) | Trial (paid 2026-05-25) | 2026-05-11 |
 | Yamaha R-N800A (YXC API) | [Yamaha-RN800A.md](Yamaha-RN800A.md) | Active | 2026-05-11 |
 
 Add a row when a new profile lands. Update Last reviewed when you touch the profile.
+
+### Deprecated profiles
+
+| Package | Path | Status | Notes |
+|---|---|---|---|
+| Roon (Server + Bridge + Remote) | [Roon.md](Roon.md) | Deprecated 2026-05-18 | Trial cancelled before subscription; footprint removed from NAS + GDMARCHE 2026-05-30 (Rafa). Profile retained as historical archive. |
 
 ## What does NOT go here
 

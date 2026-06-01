@@ -27,5 +27,5 @@
 - NVIDIA Studio Driver recommended for production stability  
 - Hardware-accelerated GPU scheduling enabled (Windows Settings → System → Display → Graphics → Default)  
 - Power Management Mode set to *Prefer Maximum Performance* (NVIDIA Control Panel)  
-- HDMI/DisplayPort audio outputs disabled to avoid driver conflicts with Focusrite ASIO  
+- HDMI/DisplayPort audio outputs disabled to avoid driver conflicts with MOTU M Series ASIO  
 - GPU actively handles video decode/encode tasks to free CPU for real-time audio processing

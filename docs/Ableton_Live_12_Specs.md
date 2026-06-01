@@ -1,8 +1,8 @@
 ---
 title: "Ableton Live 12 - DAW Specifications & Reference"
-version: "2026.05.05"
+version: "2026.05.30"
 author: "Gillon Marchetti | The Audiopheliac"
-last_updated: "2026-05-05"
+last_updated: "2026-05-30"
 repo_link: "https://github.com/MarcArmy2003/The-Audiopheliac"
 description: "Reference sheet for Ableton Live 12 in The Audiopheliac studio environment: editions owned, install paths, default session settings, and the Ableton Live Knowledge connector for in-session production assistance."
 status: "Active"
@@ -46,23 +46,28 @@ The repo `.gitignore` blocks `Ableton Cache/` and `Ableton Temp/` at any depth, 
 
 - Sample rate: 48 kHz (per `CLAUDE.md` Software and DAW Environment)
 - Bit depth: 24-bit
-- Audio interface: Focusrite Scarlett Solo Gen 4 (ASIO; simultaneous WDM + ASIO supported)
-- Monitoring: Yamaha HS7 (pair) + JBL LSR310S subwoofer
-- Headphone monitoring: Scarlett Solo headphone output (preferred for streaming/DAW listening); Rolls MX28 headphone output reserved for multi-source blended monitoring
+- Audio interface: MOTU M4 (MOTU M Series ASIO 4.5.0.551, firmware 2.07; simultaneous WDM + ASIO supported; replaces the failed Focusrite Scarlett Solo as of 2026-05-28)
+- Monitoring: Yamaha HS7 (pair) + JBL LSR310S subwoofer (via Rolls MX28 LEVEL 3 BAL from M4 MONITOR Outs 1-2 TRS)
+- Headphone monitoring: MOTU M4 front-panel headphone outputs (wired to Out 3-4 by default; M Series Console can route Out 1-2 mix to headphones for monitoring the main mix); Rolls MX28 headphone output reserved for multi-source blended monitoring
 
 ---
 
 ## 4. Studio Signal Path Into Live
 
 ```
-AT-LP120XUSB
-  > Focusrite Scarlett Solo (USB to GDMARCHE)
+AT-LP120XUSB (phono out RCA)
+  > Schiit Mani II (phono preamp, MM mode)
+  > MOTU M4 LINE IN 3-4 (USB-C to GDMARCHE; M Series ASIO)
   > Ableton Live 12
-  > Rolls MX28 Mini-Mix VI
-  > Yamaha HS7 + JBL LSR310S
+
+Ableton playback:
+  Ableton Live 12
+    > MOTU M4 MONITOR Outs 1-2 (TRS balanced)
+    > Rolls MX28 Mini-Mix VI (LEVEL 3 BAL)
+    > Yamaha HS7 + JBL LSR310S
 ```
 
-Direct Monitor on the Scarlett stays off for all playback (on only for live zero-latency tracking). Full chain reference: `CLAUDE.md` Signal Chain Map - Studio.
+INPUT MONITOR MIX (front-panel knob on the M4) stays toward PLAYBACK for daily listening and toward INPUT or blended for live zero-latency tracking. Full chain reference: `CLAUDE.md` Signal Chain Map - Office Studio.
 
 ---
 
@@ -109,7 +114,7 @@ Single source of truth (local, never committed): `C:\Users\gillo\Keys\Audiopheli
 ## 7. Cross-References
 
 - `CLAUDE.md` (Software and DAW Environment, Signal Chain Map - Studio, Reasoning Protocol, Mode Contracts)
-- `docs/av_master_inventory_2026.md` (Studio gear: Focusrite Scarlett Solo, Yamaha HS7, JBL LSR310S, Casio Privia PX-870)
+- `docs/av_master_inventory_2026.md` (Studio gear: MOTU M4, Yamaha HS7, JBL LSR310S, Casio Privia PX-870)
 - `docs/Processing_Hardware.md` (Yamaha R-N800A and processing gear specs)
 - `docs/Dell_Precision_7540_Specs.md` (Workstation hosting Live 12)
 - `docs/instrument_specs_v_2025_10_08.md` (References Live 12 in DAW chain examples)

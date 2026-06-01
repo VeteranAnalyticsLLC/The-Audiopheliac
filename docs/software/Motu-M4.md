@@ -37,11 +37,15 @@ The MOTU M4 is the GDMARCHE Office Studio audio interface. It bridges the Window
 | UPC | 839128 006126 |
 | USB connection | USB-C bus-powered; connected to GDMARCHE chassis-direct USB-A port via included USB-C-to-USB-A cable (not through WD19DCS dock — chassis-direct for lowest-jitter primary path) |
 
+### Bundled software offers (registration pending)
+
+The M4 ships with companion software offers redeemable via MOTU's "Welcome" page after device registration. **Registration is NOT YET complete (2026-05-31).** Until the device serial is registered at motu.com, the bundled offer page cannot be accessed and the exact list of included software cannot be enumerated authoritatively. Plan to register at https://motu.com/register and log the bundled offer set into this section once visible. Historically (verify against current MOTU promotions at registration time), M-series interfaces have bundled offers such as Ableton Live Lite, MOTU Performer Lite, and trial subscriptions to sample/loop services. Live Lite would be redundant with Gill's existing Suite license; the rest may or may not be useful.
+
 ---
 
 ## 3. Account / Credentials
 
-N/A. The M4 + M Series driver do not require an account. Vendor account at motu.com is optional (used for software downloads and warranty registration); not required for daily operation.
+N/A for daily operation. The M4 + M Series driver do not require an account. Vendor account at motu.com is optional but required to access bundled software offers (see Section 2). Registration link: https://motu.com/register. Auth email when registered: gillon.marchetti@gmail.com.
 
 ---
 

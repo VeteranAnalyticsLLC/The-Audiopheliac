@@ -188,7 +188,7 @@ WS   /ws/state                               WebSocket: live zone+source updates
 
 **T5. Suno integration risk.** AceData Cloud is a third-party scraping wrapper. ToS gray area; account-ban risk is real. Limit dashboard scope to: prompt drafting (always safe), generation status polling (gray), library browse (gray). No automated mass-generation. Manual generation stays in the browser at suno.com.
 
-**T6. Vinyl-as-source detection.** Manual entry is reliable but tedious. Shazam-style mic capture from a USB mic (the Scarlett Solo input, when it's working) would auto-populate. Free APIs: ACRCloud (free tier 14 days), AcoustID (free, requires Chromaprint fingerprinting). Lean: manual for v1, ACRCloud experiment in v2.
+**T6. Vinyl-as-source detection.** Manual entry is reliable but tedious. Shazam-style mic capture from a USB mic (any of the MOTU M4's combo XLR/TRS inputs 1-2) would auto-populate. Free APIs: ACRCloud (free tier 14 days), AcoustID (free, requires Chromaprint fingerprinting). Lean: manual for v1, ACRCloud experiment in v2.
 
 ## 9. What I'd Revisit at Scale
 

@@ -1,0 +1,260 @@
+# Ableton Live 12 Suite - Settings Snapshot (machine-readable)
+# The Audiopheliac project reference. Parse this for quick recall during lessons or how-to queries.
+# Human-readable companion: Ableton_Live_12_Settings_Reference.md
+
+meta:
+  document: ableton_live_12_settings_snapshot
+  project: the_audiopheliac
+  maintainer: Gillon Marchetti (MarcArmy2003)
+  captured: 2026-05-31
+  host: GDMARCHE
+  host_machine: Dell Precision 7540
+  host_os: Windows 11 Pro
+  daw: Ableton Live 12 Suite
+  daw_version: 12.4.1  # auto-updated from 12.3.4 during Mentor Lesson 2 mid-session 2026-05-31
+  license_status: authorized
+  interface_of_record: MOTU M4
+  source: nine settings-tab screenshots captured by Gill (pre-12.4.1 layout); revised same day with current values from Live 12.4.1 split tabs
+  layout_note: >
+    Live 12.4.1 split the legacy combined "Link, Tempo & MIDI" Settings tab into
+    two separate tabs (link, tempo_midi). The Link tab gained a Link Audio
+    subsection. This YAML reflects the post-12.4.1 layout. Original PNG
+    04_link_tempo_midi.png is pre-split and referenced by both tabs until
+    recapture into 04_link.png and 05_tempo_midi.png.
+  verification_note: >
+    Values transcribed from screenshots only. Path availability and driver
+    behavior require Cowork/CLI confirmation against live disk and NAS state.
+
+display_and_input:
+  display:
+    language: US-English
+    zoom_pct: 100
+    enable_gpu_renderer: true
+    enable_hidpi_mode: true
+  display_options:
+    outline_view_in_focus: true
+    show_scroll_bars: Follow System
+    follow_behavior: Scroll
+    hide_labels: Show
+  navigation_and_keyboard:
+    use_tab_key_to_move_focus: true
+    wrap_tab_navigation: true
+    move_clips_with_arrow_keys: true
+  mouse_and_pen_input:
+    pen_tablet_mode: false
+    permanent_scrub_areas: true
+    draw_midi_notes_with_pitch_lock: false
+  application_options:
+    allow_sleep_mode: false
+    allow_multiple_instances: true
+    dont_show_again_warnings: Restore
+
+theme_and_colors:
+  theme:
+    theme: Immaterial
+    appearance: Follow System
+    tone: Neutral
+    high_contrast: false
+  customization:
+    grid_line_intensity_pct: 100
+    brightness_pct: 90
+    color_intensity_pct: 0
+    color_hue_deg: 0
+  track_and_clip_colors:
+    auto_assign_track_colors: true
+    default_track_color: none
+    reduced_automatic_colors: true
+    clip_color: Track Color
+
+audio:
+  audio_device:
+    driver_type: MME/DirectX
+    audio_input_device: In 1-2 (MOTU M Series) DX
+    audio_output_device: Out 1-2 (MOTU M Series) DX
+    channel_configuration: [Input Config, Output Config]
+  sample_rate:
+    in_out_sample_rate_hz: 48000
+    default_sr_and_pitch_conversion: High Quality
+  latency:
+    input_buffer_size_samples: 8192
+    input_latency_ms: 171
+    output_buffer_size_samples: 4096
+    output_latency_ms: 85.3
+    driver_error_compensation_ms: 0.00
+    overall_latency_ms: 256
+  test:
+    test_tone: false
+    tone_volume_db: -36
+    tone_frequency_hz: 440
+    cpu_usage_simulator_pct: 50
+  flags:
+    - driver_is_directx_not_asio
+    - overall_latency_256ms_high_for_live_monitoring
+
+# Layout note: Live 12.4.1 split the legacy combined "Link, Tempo & MIDI" tab
+# into two separate Settings tabs (link, tempo_midi). The Link tab also gained
+# a Link Audio subsection. This YAML reflects the post-12.4.1 layout.
+link:
+  link:
+    show_link_toggle: Show
+    start_stop_sync: false
+  link_audio:
+    audio: false
+    name: Live
+    latency_ms: 100
+    sync_to_incoming_audio: false  # greyed; only active when link_audio.audio is true
+  peers: []  # empty until Link is enabled
+
+tempo_midi:
+  tempo_follower:
+    show_tempo_follower_toggle: Show
+    input_channel_ext_in: 1/2
+  resync_external_hardware:
+    show_resync_button: Show
+  control_surfaces:
+    rows_1_to_6: {control_surface: None, input: None, output: None}
+    takeover_mode: None
+  input_ports:
+    - name: MOTU M Series MIDI In
+      track: true
+      sync: false
+      remote: false
+      mpe: false
+  output_ports:
+    - name: Microsoft GS Wavetable Synth
+      track: true
+      sync: false
+      remote: false
+      midi_clock_sync_delay_ms: 0.00
+      midi_clock_type: Song
+      hardware_resync: Stop and Start
+    - name: MOTU M Series MIDI Out
+      track: false
+      sync: false
+      remote: false
+
+file_and_folder:
+  data_handling:
+    create_analysis_files: true
+    sample_editor: C:/Program Files/Audacity/Audacity.exe
+    temporary_folder: C:/Users/gillo/OneDrive/Documents/Ableton/Live Recordings
+    sound_content_analysis: true
+  max_application:
+    mode: Use bundled version
+  decoding_cache:
+    minimum_free_space_mb: 500.00
+    maximum_cache_size_gb: 10.00
+    cache_folder: D:\Ableton Cache
+  flags:
+    - sample_editor_is_audacity_matches_capture_workflow
+    - temp_folder_inside_onedrive_cloud_sync_churn_risk
+
+library:
+  browser_behavior:
+    collect_files_on_export: Always
+    show_downloadable_packs: true
+    show_cloud: true
+    show_push: true
+    show_splice: true
+  content_locations:
+    location_of_user_library: M:\The Audiopheliac\User Library
+    installation_folder_for_packs: D:\Ableton Packs
+    installation_folder_for_packs_available: false
+  splice:
+    download_folder_for_splice_samples: Custom Folder
+    custom_folder_for_splice_downloads: M:/The Audiopheliac/Splice Samples
+    custom_folder_for_splice_downloads_available: false
+  flags:
+    - packs_folder_d_drive_not_available
+    - splice_folder_m_drive_not_available_check_nas_mapping
+    - user_library_on_m_drive_depends_on_nas_mapping
+
+plug_ins:
+  plug_in_sources:
+    use_vst2_custom_folder: true
+    vst2_custom_folder: D:\VSTs\VST2
+    vst2_custom_folder_available: false
+    use_vst3_system_folders: true
+    use_vst3_custom_folder: true
+    vst3_custom_folder: D:\VSTs\VST3
+    vst3_custom_folder_available: false
+  plug_in_windows:
+    multiple_plug_in_windows: true
+    auto_hide_plug_in_windows: true
+    auto_open_plug_in_windows: true
+  flags:
+    - vst2_custom_folder_not_available
+    - vst3_custom_folder_not_available
+    - vst3_system_folders_on_factory_vst3s_still_load
+
+record_warp_launch:
+  record:
+    file_type: WAV
+    bit_depth: 24
+    count_in: 1 Bar
+    exclusive: [Arm, Solo]
+    clip_update_rate: 1/16
+    record_session_automation_in: All Tracks
+    start_transport_with_record: true
+  warp_fades:
+    loop_warp_short_samples: Auto
+    auto_warp_long_samples: false
+    default_warp_mode: Complex
+    create_fades_on_clip_edges: true
+  launch:
+    default_launch_mode: Trigger
+    default_launch_quantization: 1 Bar
+    select_on_launch: true
+    select_next_scene_on_launch: true
+    start_recording_on_scene_launch: true
+  tap_tempo:
+    start_transport_with_tap_tempo: true
+  flags:
+    - wav_24bit_matches_daily_capture_standard
+    - archive_grade_albums_step_to_96khz_24bit_per_session
+
+licenses_and_updates:
+  licenses:
+    status: Ableton Live 12 Suite + 1 add-on authorized
+    addon_identity: Beat Tools  # third serial on Gill's Ableton account; authorized into runtime after the 2026-05-31 initial snapshot
+    authorize_online: Authorize at ableton.com
+    authorize_offline: Authorize offline
+  maintenance:
+    get_automatic_updates: Always
+    send_usage_data: false
+
+open_items:
+  - id: audio_driver_type
+    tab: Audio
+    value: MME/DirectX (not ASIO)
+    detail: Overall latency 256 ms. Acceptable for capture/playback, high for live monitoring through Live. ASIO driver available (MOTU M Series 4.5.0.551).
+  - id: temp_folder_onedrive
+    tab: File & Folder
+    value: "C:/Users/gillo/OneDrive/Documents/Ableton/Live Recordings"
+    detail: Cloud-synced recording path risks sync churn and lock contention during active sessions.
+  - id: packs_folder_unavailable
+    tab: Library
+    value: "D:\\Ableton Packs"
+    detail: Marked not available in snapshot.
+  - id: splice_folder_unavailable
+    tab: Library
+    value: "M:/The Audiopheliac/Splice Samples"
+    detail: "Marked not available. NAS path; verify M: mapping before treating as broken."
+  - id: user_library_nas
+    tab: Library
+    value: "M:\\The Audiopheliac\\User Library"
+    detail: "NAS path; depends on M: mapping at launch."
+  - id: vst2_folder_unavailable
+    tab: Plug-Ins
+    value: "D:\\VSTs\\VST2"
+    detail: Marked not available.
+  - id: vst3_folder_unavailable
+    tab: Plug-Ins
+    value: "D:\\VSTs\\VST3"
+    detail: Marked not available. VST3 system folders On, so factory VST3s still load.
+
+cross_references:
+  - CLAUDE.md SIGNAL CHAIN MAP Office Studio
+  - CLAUDE.md GAIN STAGING PRINCIPLES
+  - docs/av_master_inventory_2026.md
+  - the-mentor skill current_state block (MOTU M4 active, Scarlett retired)

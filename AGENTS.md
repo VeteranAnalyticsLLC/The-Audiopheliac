@@ -202,7 +202,8 @@ The D: drive is the second internal drive on GDMARCHE (original factory drive, s
 - DHCP reservation at 192.168.1.119 confirmed (toggle set in Spectrum router admin 2026-05-05)
 
 ### Audio Interface
-- **Primary (2026-05-11):** M-Audio AIR Hub (AIRXHUB) — USB-C device to USB-A on WD19DCS dock; 24-bit/96kHz DAC; 2× balanced 1/4" TRS monitor outs; 1× 1/4" headphone (independent level); 3× powered USB-A hub (LP120, Spark 40, Casio Privia); M-Audio AIR Hub ASIO driver. **Output only — no ADC.** Recording capability offline until input-capable replacement is sourced.
+- **Active primary (installed 2026-05-28):** MOTU M4 — USB-C 4-channel interface, bus-powered, 24-bit/192kHz. Inputs 1-2: combo XLR/TRS with mic preamp + 48V phantom. Inputs 3-4: dedicated 1/4" TRS line inputs (reserved for Schiit Mani II vinyl rip path). MONITOR Outs 1-2 (1/4" TRS balanced) feed Rolls MX28 LEVEL 3 BAL. 2× front-panel 1/4" headphone outputs. Driver: MOTU M Series ASIO 4.5.0.551, firmware 2.07.
+- **Cold spare (eval through 2026-06-27):** M-Audio AIR Hub (AIRXHUB) — output-only 24-bit/96kHz interface, retained as known-good fallback.
 - **Failed:** Focusrite Scarlett Solo Gen 4 (S/N S1XJ7HX57AF107) — fried 2026-05-11, removed from chain. Warranty attempt pending without receipt; assume unrecoverable.
 
 ### Office Studio Monitors
@@ -367,7 +368,7 @@ C:\Users\gillo\6. The-Audiopheliac   (live repo — edit here)
 - **DAWs:** Ableton Live 12 Suite (default), Audacity (editing)
 - **AI Music:** Suno (Premier Annual) — see Platform Credentials and Suno Production Environment
 - **Default session:** 48 kHz / 24-bit unless specified otherwise
-- **Driver:** M-Audio AIR Hub ASIO (current as of 2026-05-11). Focusrite ASIO retained on system but no longer in active use (Solo hardware failed).
+- **Driver:** MOTU M Series ASIO 4.5.0.551 (active as of 2026-05-28; replaces M-Audio AIR Hub ASIO). Simultaneous WDM + ASIO supported. AIR Hub ASIO retained on system as cold-spare driver through 2026-06-27 evaluation window. Focusrite ASIO retained but not in active use (Solo hardware failed 2026-05-11).
 - **Ableton paths:**
   - Cache: `D:\Ableton Cache`
   - User Library: `D:\Ableton User Library`

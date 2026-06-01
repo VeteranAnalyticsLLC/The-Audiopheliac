@@ -25,7 +25,7 @@ status: "Active"
 - **String Recommendation:** D’Addario XS Phosphor Bronze Lights (EJ16-3D) or Martin MA540S Silk & Steel.
 - **Mic’ing Technique:** Small-diaphragm condenser (RØDE NT5 / AT2021) 8–10” from 12th fret, angled toward sound hole.
 - **EQ Curve:** +2 dB @ 3 kHz, +1.5 dB @ 12 kHz, -1 dB @ 400 Hz.
-- **DAW Chain:** Focusrite Scarlett Solo → Ableton Live 12 → FabFilter Pro-Q3 (EQ) → Valhalla Room (reverb light plate).
+- **DAW Chain:** MOTU M4 → Ableton Live 12 → FabFilter Pro-Q3 (EQ) → Valhalla Room (reverb light plate).
 - **Performance Tip:** Softer pick attack enhances clarity; avoid heavy strumming to preserve tone integrity.
 
 ### **Ibanez PF5NT1201 (2012)**
@@ -47,7 +47,7 @@ status: "Active"
 - **Tonal Character:** Creamy sustain with punchy mids and articulate treble.
 - **Pickups:** Alnico Classic Pro humbuckers (coil-split).
 - **String Recommendation:** D’Addario NYXL 10-46.
-- **Amp Chain:** Positive Grid Spark 40 or Yamaha THR10 → Neural DSP Archetype Cory Wong → Focusrite Scarlett Solo.
+- **Amp Chain:** Positive Grid Spark 40 or Yamaha THR10 → Neural DSP Archetype Cory Wong → MOTU M4.
 - **EQ Curve:** +2 dB @ 2.5 kHz, +1.5 dB @ 6 kHz.
 - **DAW Chain:** Logic Pro X → Neural DSP → SSL Channel Strip → FabFilter Saturn (gentle drive).
 - **Performance Tip:** Coil-split neck for clean funk tones; full humbucker bridge for rock rhythm.
@@ -58,7 +58,7 @@ status: "Active"
 
 | Instrument | DAW Input Chain | Preferred Mic / DI | Recommended FX Stack | Ideal Genre / Use |
 |-------------|------------------|--------------------|----------------------|-------------------|
-| Seagull SC-6W | Scarlett Solo → Ableton Live 12 | Rode NT5 (mic’d) | Pro-Q3 EQ → Valhalla Room | Fingerstyle, Folk, Singer-Songwriter |
+| Seagull SC-6W | MOTU M4 → Ableton Live 12 | Rode NT5 (mic’d) | Pro-Q3 EQ → Valhalla Room | Fingerstyle, Folk, Singer-Songwriter |
 | Ibanez PF5NT1201 | UMC404HD → Reaper | AKG C214 | CLA Acoustic → FG-Stress | Pop, Country, Rhythm Guitar |
 | Casio Privia PX-870WE | Yamaha AG03 → Logic Pro X | Direct Line | Pro-R Reverb → Noire Layer | Cinematic, Ambient, Classical |
 | Epiphone Les Paul Standard Pro | Spark 40 / THR10 → Logic Pro X | DI or mic’d cab | Neural DSP → Saturn Drive | Rock, Blues, Fusion |

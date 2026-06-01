@@ -31,7 +31,8 @@ all American music draws from the same well. The collision format proves it.
 
 ## Instrumentation Target
 
-Gill's own vocals into Ableton Live 12 Suite. Suno v5.5 generates backing
+Gill's own vocals into Ableton Live 12 Suite via MOTU M4 (active primary
+since 2026-05-28; replaced the failed Focusrite Scarlett Solo, serial
+S1XJ7HX57AF107, warranty unrecoverable). Suno v5.5 generates backing
 arrangements from prompts in prompts/. Final mix and master in Ableton
-before any distribution. Recording chain pending Scarlett Solo replacement
-(serial S1XJ7HX57AF107, warranty claim in progress).
+before any distribution.

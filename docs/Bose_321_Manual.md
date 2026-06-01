@@ -189,5 +189,5 @@ To retain archival DVD/CD playback or TrueSpace DSP character, you can:
 
 ---
 
-Would you like me to produce a **visual system schematic** showing how this integrates with your **Yamaha R-N800A**, **Scarlett Solo**, and your **media network topology** (grounding, impedance, and routing labeled)?
+Would you like me to produce a **visual system schematic** showing how this integrates with your **Yamaha R-N800A**, **MOTU M4**, and your **media network topology** (grounding, impedance, and routing labeled)?
 That would give you a blueprint to reintroduce this unit safely as a vintage “cinema transport” node.
