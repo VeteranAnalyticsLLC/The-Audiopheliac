@@ -324,3 +324,44 @@ Continuation session resumed from the `docs/session_handoffs/audio_2026-05-29.md
 - Slack `#theaudiopheliac` close post.
 - Settings library reorganization Rafa prompt drafting (per Next actions, queued for next session).
 - Mentor skill rework (large architectural task; deferred per Gill request).
+
+---
+
+## Session 7 — 2026-06-01
+
+**Work done:**
+- **/the-mentor skill rework (obs #19) — live.** Reworked `~/.claude/skills/the-mentor/SKILL.md` (416 → 292 lines): fluency ladder (terse / logical-group / full-walkthrough), a mandatory pre-flight checklist that enforces obs #11/#16/#17/#19 mechanically (examined attachment, no keyboard shortcuts, version-specific path verified, fluency-matched, earned checkpoint), currency discipline (12.4.1 + verify-don't-recall), screenshot-first UI navigation, conversational variability + check-ins, settings-snapshot pass, bloat trimmed. Prior version backed up at `~/.claude/skill-updates/2026-05-31/the-mentor/SKILL.md.pre-rework-bak`. The session's audio-silence cause is now a durable troubleshooting row in the skill.
+- **Mentor persona integrated** (Gill's tighter rewrite) as a dedicated `## THE-MENTOR PERSONA` section across all instruction surfaces. Markdown of the source PDF at `Downloads\The Audiopheliac Mentor Persona.md`.
+- **Instruction-surface full-parity reconciliation (Gill Option A):**
+  - `CLAUDE.md` v2026.05.3 → **v2026.05.4**: persona section, de-rigidified Mentor mode contract to fluency-aware, Ableton **12.4.1**, Signal Cartography diagram cross-ref (`assets/Audiopheliac_Signal_Chain.pdf`), GDMARCHE IP resolved (.119 authoritative).
+  - `AGENTS.md` brought to **full parity** (was a stale AIR-Hub-era fork with no Mentor contract; mirrored from CLAUDE.md, AGENTS/Codex header identity + self-references preserved).
+  - Cowork "Edit Instructions" page deliverable mirrored **byte-identical** at `Downloads\The Audiopheliac - Cowork Project Instructions (revised 2026-05-31).md`.
+- **Committed + pushed Session 6's entire "None pushed" backlog** (CLAUDE.md, MOTU M4 docs, Roon removal, Ableton settings docs, daily_log, site pages, Scarlett→M4 disposition).
+- gitignored `docs/documentation/` (90 MB Ableton manual that was staged for commit — would have blown the GitHub size limit).
+
+**Commits:**
+- `56bbe13` — docs: CLAUDE.md/Cowork parity pass + Session 5/6 audio-infra consolidation
+- `5c1259c` — docs: bring AGENTS.md to full parity with CLAUDE.md v2026.05.4
+- Both pushed to origin/main; remote tips verified. Tree clean.
+
+**Decisions:**
+- Full parity across all three instruction surfaces (CLAUDE.md / AGENTS.md / Cowork page); repo-edit lane override authorized by Gill's direct /no-man-left-behind instruction.
+- 90 MB Ableton manual excluded from git rather than committed.
+- Diagram capture path (Mani II → M4 INPUTS 3/4) documented as the target config pending RCA→TRS adapters, distinct from the current Mani II → MX28 listening path — nuance preserved, not flattened.
+
+**Corrections (self):**
+- Caught and fixed an inaccurate commit-message claim ("AGENTS.md kept in parity") by actually bringing AGENTS.md to parity instead of leaving it a stale fork.
+
+**Observations logged:** #20 (behavioral enforcement belongs in skill mechanics, not persona prose), #21 (secondary instruction surface drifted a full version behind canonical, asserting retired gear as active — validated live by the AGENTS.md fork).
+
+**Stapleton recording status (Mentor Lesson 2):** Both sides recorded; the Ableton project is saved (D: drive). Playback is **silent** — Gill cannot hear either side. Cause already diagnosed (Session 6, now in the skill's troubleshooting table): track Audio To = `Ext. Out, 1/2` (bypasses the Main bus) + track fader at -∞.
+
+**Next actions (Session 8 focus, per Gill):**
+- **Fix audio output** so playback is audible: track Audio To → Main, fader → ~0 dB (30-second fix).
+- **Clean up the two sides and split the songs** (Workflow B): cleanup pass, gain/limiter, listen-through, track-split with locators, FLAC export per track to `M:\…From A Room Vol 1…` (9 tracks).
+- Still pending from Session 6 backlog: image swap (10 tab PNGs at 12.4.1 layout, 04 → 04_link / 05_tempo_midi), library reorganization Rafa prompt, `media/audio_system_playbook.md` rewrite.
+- Optional quick follow-up: correct the stale `.75` → `.119` in `docs/GDMARCHE_HomeOffice_Connections_v2026_05.md` (the last downstream holdout of the resolved IP conflict).
+
+**Open carry-forwards (not blocking the close):**
+- Slack `#theaudiopheliac` close post (Cowork lane — draft provided in chat).
+- Library reorganization Rafa prompt drafting.
